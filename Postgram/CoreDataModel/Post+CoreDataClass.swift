@@ -1,15 +1,27 @@
-//
-//  Post+CoreDataClass.swift
-//  Postgram
-//
-//  Created by Павел Градов on 09.07.2024.
-//
-//
-
 import Foundation
 import CoreData
 
 @objc(Post)
 public class Post: NSManagedObject {
+
+}
+
+extension Post {
+
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Post> {
+        return NSFetchRequest<Post>(entityName: "Post")
+    }
+
+    @NSManaged public var id: String?
+    @NSManaged public var title: String?
+    @NSManaged public var date: Date?
+    @NSManaged public var tags: NSObject?
+    @NSManaged public var text: String?
+    @NSManaged public var imageUrl: String?
+    @NSManaged public var rootFolder: Folder?
+
+}
+
+extension Post : Identifiable {
 
 }
