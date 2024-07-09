@@ -14,7 +14,7 @@ extension Folder {
 
     @NSManaged public var id: String?
     @NSManaged public var header: String?
-    @NSManaged public var publications: Post?
+    @NSManaged public var publications: NSSet?
 
 }
 

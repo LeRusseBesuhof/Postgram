@@ -9,24 +9,40 @@
 /* Begin PBXBuildFile section */
 		3743CEDE2C3C2DFC00073612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743CEDD2C3C2DFC00073612 /* AppDelegate.swift */; };
 		3743CEE02C3C2DFC00073612 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743CEDF2C3C2DFC00073612 /* SceneDelegate.swift */; };
-		3743CEE22C3C2DFC00073612 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743CEE12C3C2DFC00073612 /* MainViewController.swift */; };
 		3743CEEA2C3C2DFE00073612 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3743CEE92C3C2DFE00073612 /* Assets.xcassets */; };
 		3743CEED2C3C2DFE00073612 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3743CEEC2C3C2DFE00073612 /* Base */; };
-		3743CEF62C3C2E1F00073612 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3743CEF52C3C2E1F00073612 /* SnapKit */; };
-		376ABBD62C3C5973009E6B80 /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBD22C3C5973009E6B80 /* Post+CoreDataClass.swift */; };
-		376ABBD82C3C5973009E6B80 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBD42C3C5973009E6B80 /* Folder+CoreDataClass.swift */; };
+		376ABBE12C3D71AB009E6B80 /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBDD2C3D71AB009E6B80 /* Post+CoreDataClass.swift */; };
+		376ABBE32C3D71AB009E6B80 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBDF2C3D71AB009E6B80 /* Folder+CoreDataClass.swift */; };
+		376ABBE82C3D723B009E6B80 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBE72C3D723B009E6B80 /* CoreDataManager.swift */; };
+		376ABBEB2C3D7632009E6B80 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 376ABBEA2C3D7632009E6B80 /* SnapKit */; };
+		376ABBED2C3D7C39009E6B80 /* PublicationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBEC2C3D7C39009E6B80 /* PublicationsModel.swift */; };
+		376ABBEF2C3D7C80009E6B80 /* PublicationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBEE2C3D7C80009E6B80 /* PublicationsView.swift */; };
+		376ABBF12C3D7D43009E6B80 /* PublicationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBF02C3D7D43009E6B80 /* PublicationsPresenter.swift */; };
+		376ABBF32C3D7D60009E6B80 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBF22C3D7D60009E6B80 /* Router.swift */; };
+		376ABBF52C3D7DC2009E6B80 /* PublicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBF42C3D7DC2009E6B80 /* PublicationsViewController.swift */; };
+		37AC7EBD2C3D7F9200331626 /* NotificationName.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC7EBC2C3D7F9200331626 /* NotificationName.ext.swift */; };
+		37AC7EBF2C3D83B700331626 /* PublicationsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC7EBE2C3D83B700331626 /* PublicationsAssembly.swift */; };
+		37AC7EC22C3DADD200331626 /* post.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37AC7EC02C3DADD200331626 /* post.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3743CEDA2C3C2DFC00073612 /* Postgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Postgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3743CEDD2C3C2DFC00073612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3743CEDF2C3C2DFC00073612 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3743CEE12C3C2DFC00073612 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3743CEE92C3C2DFE00073612 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3743CEEC2C3C2DFE00073612 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3743CEEE2C3C2DFE00073612 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		376ABBD22C3C5973009E6B80 /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
-		376ABBD42C3C5973009E6B80 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		376ABBDD2C3D71AB009E6B80 /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
+		376ABBDF2C3D71AB009E6B80 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		376ABBE72C3D723B009E6B80 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		376ABBEC2C3D7C39009E6B80 /* PublicationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicationsModel.swift; sourceTree = "<group>"; };
+		376ABBEE2C3D7C80009E6B80 /* PublicationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicationsView.swift; sourceTree = "<group>"; };
+		376ABBF02C3D7D43009E6B80 /* PublicationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicationsPresenter.swift; sourceTree = "<group>"; };
+		376ABBF22C3D7D60009E6B80 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		376ABBF42C3D7DC2009E6B80 /* PublicationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicationsViewController.swift; sourceTree = "<group>"; };
+		37AC7EBC2C3D7F9200331626 /* NotificationName.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.ext.swift; sourceTree = "<group>"; };
+		37AC7EBE2C3D83B700331626 /* PublicationsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicationsAssembly.swift; sourceTree = "<group>"; };
+		37AC7EC12C3DADD200331626 /* post.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = post.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3743CEF62C3C2E1F00073612 /* SnapKit in Frameworks */,
+				376ABBEB2C3D7632009E6B80 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,18 +76,21 @@
 		3743CEDC2C3C2DFC00073612 /* Postgram */ = {
 			isa = PBXGroup;
 			children = (
-				3743CEFC2C3C55CB00073612 /* CoreDataModel */,
-				3743CEF72C3C543700073612 /* Main */,
+				376ABBF22C3D7D60009E6B80 /* Router.swift */,
+				3743CEFC2C3C55CB00073612 /* CoreData */,
+				3743CEF72C3C543700073612 /* Publications */,
+				37AC7EBB2C3D7F7600331626 /* Extension */,
 				3743CEDD2C3C2DFC00073612 /* AppDelegate.swift */,
 				3743CEDF2C3C2DFC00073612 /* SceneDelegate.swift */,
 				3743CEE92C3C2DFE00073612 /* Assets.xcassets */,
 				3743CEEB2C3C2DFE00073612 /* LaunchScreen.storyboard */,
 				3743CEEE2C3C2DFE00073612 /* Info.plist */,
+				37AC7EC02C3DADD200331626 /* post.xcdatamodeld */,
 			);
 			path = Postgram;
 			sourceTree = "<group>";
 		};
-		3743CEF72C3C543700073612 /* Main */ = {
+		3743CEF72C3C543700073612 /* Publications */ = {
 			isa = PBXGroup;
 			children = (
 				3743CEFB2C3C547B00073612 /* Model */,
@@ -79,12 +98,13 @@
 				3743CEF92C3C546E00073612 /* Presenter */,
 				3743CEF82C3C546500073612 /* Assembly */,
 			);
-			path = Main;
+			path = Publications;
 			sourceTree = "<group>";
 		};
 		3743CEF82C3C546500073612 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
+				37AC7EBE2C3D83B700331626 /* PublicationsAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -92,6 +112,7 @@
 		3743CEF92C3C546E00073612 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				376ABBF02C3D7D43009E6B80 /* PublicationsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -99,7 +120,8 @@
 		3743CEFA2C3C547500073612 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3743CEE12C3C2DFC00073612 /* MainViewController.swift */,
+				376ABBEE2C3D7C80009E6B80 /* PublicationsView.swift */,
+				376ABBF42C3D7DC2009E6B80 /* PublicationsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,17 +129,43 @@
 		3743CEFB2C3C547B00073612 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				376ABBEC2C3D7C39009E6B80 /* PublicationsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		3743CEFC2C3C55CB00073612 /* CoreDataModel */ = {
+		3743CEFC2C3C55CB00073612 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				376ABBD42C3C5973009E6B80 /* Folder+CoreDataClass.swift */,
-				376ABBD22C3C5973009E6B80 /* Post+CoreDataClass.swift */,
+				376ABBE62C3D722C009E6B80 /* Manager */,
+				376ABBE52C3D7227009E6B80 /* Model */,
 			);
-			path = CoreDataModel;
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		376ABBE52C3D7227009E6B80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				376ABBDD2C3D71AB009E6B80 /* Post+CoreDataClass.swift */,
+				376ABBDF2C3D71AB009E6B80 /* Folder+CoreDataClass.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		376ABBE62C3D722C009E6B80 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				376ABBE72C3D723B009E6B80 /* CoreDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		37AC7EBB2C3D7F7600331626 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				37AC7EBC2C3D7F9200331626 /* NotificationName.ext.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +185,7 @@
 			);
 			name = Postgram;
 			packageProductDependencies = (
-				3743CEF52C3C2E1F00073612 /* SnapKit */,
+				376ABBEA2C3D7632009E6B80 /* SnapKit */,
 			);
 			productName = Postgram;
 			productReference = 3743CEDA2C3C2DFC00073612 /* Postgram.app */;
@@ -168,7 +216,7 @@
 			);
 			mainGroup = 3743CED12C3C2DFC00073612;
 			packageReferences = (
-				3743CEF42C3C2E1F00073612 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				376ABBE92C3D7632009E6B80 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 3743CEDB2C3C2DFC00073612 /* Products */;
 			projectDirPath = "";
@@ -196,11 +244,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3743CEE22C3C2DFC00073612 /* MainViewController.swift in Sources */,
+				37AC7EC22C3DADD200331626 /* post.xcdatamodeld in Sources */,
+				376ABBF52C3D7DC2009E6B80 /* PublicationsViewController.swift in Sources */,
+				376ABBE82C3D723B009E6B80 /* CoreDataManager.swift in Sources */,
+				376ABBEF2C3D7C80009E6B80 /* PublicationsView.swift in Sources */,
+				37AC7EBD2C3D7F9200331626 /* NotificationName.ext.swift in Sources */,
+				376ABBF32C3D7D60009E6B80 /* Router.swift in Sources */,
+				376ABBF12C3D7D43009E6B80 /* PublicationsPresenter.swift in Sources */,
+				37AC7EBF2C3D83B700331626 /* PublicationsAssembly.swift in Sources */,
 				3743CEDE2C3C2DFC00073612 /* AppDelegate.swift in Sources */,
-				376ABBD62C3C5973009E6B80 /* Post+CoreDataClass.swift in Sources */,
-				376ABBD82C3C5973009E6B80 /* Folder+CoreDataClass.swift in Sources */,
+				376ABBED2C3D7C39009E6B80 /* PublicationsModel.swift in Sources */,
 				3743CEE02C3C2DFC00073612 /* SceneDelegate.swift in Sources */,
+				376ABBE12C3D71AB009E6B80 /* Post+CoreDataClass.swift in Sources */,
+				376ABBE32C3D71AB009E6B80 /* Folder+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +471,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3743CEF42C3C2E1F00073612 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		376ABBE92C3D7632009E6B80 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
 			requirement = {
@@ -426,12 +482,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3743CEF52C3C2E1F00073612 /* SnapKit */ = {
+		376ABBEA2C3D7632009E6B80 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3743CEF42C3C2E1F00073612 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 376ABBE92C3D7632009E6B80 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		37AC7EC02C3DADD200331626 /* post.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				37AC7EC12C3DADD200331626 /* post.xcdatamodel */,
+			);
+			currentVersion = 37AC7EC12C3DADD200331626 /* post.xcdatamodel */;
+			name = post.xcdatamodeld;
+			path = /Users/pavelgradov/Desktop/iOS_Developer/Development/Postgram/post.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3743CED22C3C2DFC00073612 /* Project object */;
 }

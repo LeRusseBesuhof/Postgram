@@ -14,10 +14,9 @@ extension Post {
 
     @NSManaged public var id: String?
     @NSManaged public var title: String?
+    @NSManaged public var tags: [String]?
     @NSManaged public var date: Date?
-    @NSManaged public var tags: NSObject?
     @NSManaged public var text: String?
-    @NSManaged public var imageUrl: String?
     @NSManaged public var rootFolder: Folder?
 
 }

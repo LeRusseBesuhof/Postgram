@@ -17,7 +17,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let window = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: window)
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = MainViewController()
+        
+        let rootController = PublicationsAssembly.build()
+        self.window?.rootViewController = rootController
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setRoot), name: .setRoot, object: nil)
+    }
+    
+    @objc func setRoot(notification: Notification) {
+        self.window?.rootViewController = notification.object as? UIViewController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -48,7 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        // (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
 
