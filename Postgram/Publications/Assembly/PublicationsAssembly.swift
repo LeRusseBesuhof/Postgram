@@ -6,14 +6,15 @@ final class PublicationsAssembly {
         let model = PublicationsModel()
         let router = Router()
         let manager = CoreDataManager.shared
-        // manager.setUpRootFolder()
-        manager.createFolder()
+        manager.setUpRootFolder()
         
         let presenter = PublicationsPresenter(.init(router: router, model: model, manager: manager))
         
         let controller = PublicationsViewController(.init(presenter: presenter))
+        let targerController = CreationAssembly.build()
         
         router.setUpCurrentController(with: controller)
+        router.setUpTargetController(with: targerController)
         
         return controller
     }

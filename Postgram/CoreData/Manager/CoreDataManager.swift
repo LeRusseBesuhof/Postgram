@@ -38,11 +38,11 @@ final class CoreDataManager {
     }
     
     // MARK: internal methods
-    func fetchRootFolder() -> Folder? {
+    func fetchRootFolder() -> [Folder]? {
         let req = Folder.fetchRequest()
         do {
             let folders = try context.fetch(req)
-            return folders[0]
+            return folders
         } catch {
             print(error.localizedDescription)
             return nil
@@ -50,32 +50,16 @@ final class CoreDataManager {
     }
     
     func setUpRootFolder() {
-        if let folder = fetchRootFolder() {
-            self.rootFolder = folder
+        if let folders = fetchRootFolder(), !folders.isEmpty {
+            self.rootFolder = folders[0]
         } else {
-            guard let folderDescription = NSEntityDescription.entity(forEntityName: "Folder", in: context) else {
-                print("an error")
-                return
-            }
-            let folder = Folder(entity: folderDescription, insertInto: context)
-            // let folder = Folder(context: context)
+            let folder = Folder(context: context)
             folder.id = UUID().uuidString
             folder.header = "Publications"
             self.rootFolder = folder
             
-            print(FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask).first)
         }
         
         saveContext()
-    }
-    
-    func createFolder() {
-        guard let folderDescription = NSEntityDescription.entity(forEntityName: "Folder", in: context) else {
-            print("an error")
-            return
-        }
-        let folder = Folder(entity: folderDescription, insertInto: context)
-        // let folder = Folder(context: context)
-        folder.id = "123"
     }
 }

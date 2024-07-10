@@ -7,9 +7,9 @@ protocol PublicationsPresenterProtocol : AnyObject {
 
 final class PublicationsPresenter {
     // MARK: private properties
-    private var router : Router!
-    private var model : PublicationsModelProtocol!
-    private var storageManager : CoreDataManager!
+    private let router : Router!
+    private let model : PublicationsModelProtocol!
+    private let storageManager : CoreDataManager!
     private weak var view : PublicationsViewProtocol?
     private weak var controller : PublicationsViewControllerProtocol?
     
@@ -29,8 +29,16 @@ final class PublicationsPresenter {
 
 // MARK: private methods
 private extension PublicationsPresenter {
+    private func onCreatePostTouched() {
+        router.pushTargetController()
+    }
+    
     private func setUpHandlers() {
-        
+        view?.createPost = { [weak self] in
+            guard let self = self else { return }
+            
+            onCreatePostTouched()
+        }
     }
 }
 
