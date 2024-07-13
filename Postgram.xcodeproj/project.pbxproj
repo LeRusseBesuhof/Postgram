@@ -17,6 +17,10 @@
 		37556FA42C3ECE36009C2FF9 /* CreationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FA32C3ECE36009C2FF9 /* CreationPresenter.swift */; };
 		37556FA62C3ECE79009C2FF9 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FA52C3ECE79009C2FF9 /* CreationViewController.swift */; };
 		37556FA82C3ED069009C2FF9 /* CreationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FA72C3ED069009C2FF9 /* CreationAssembly.swift */; };
+		37556FAD2C42B86D009C2FF9 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FAC2C42B86D009C2FF9 /* CameraViewController.swift */; };
+		37556FAF2C42B93A009C2FF9 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FAE2C42B93A009C2FF9 /* CameraView.swift */; };
+		37556FB32C42D173009C2FF9 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FB22C42D173009C2FF9 /* CameraService.swift */; };
+		37556FB62C42D3FE009C2FF9 /* CameraPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FB52C42D3FE009C2FF9 /* CameraPresenter.swift */; };
 		376ABBE12C3D71AB009E6B80 /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBDD2C3D71AB009E6B80 /* Post+CoreDataClass.swift */; };
 		376ABBE32C3D71AB009E6B80 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBDF2C3D71AB009E6B80 /* Folder+CoreDataClass.swift */; };
 		376ABBE82C3D723B009E6B80 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBE72C3D723B009E6B80 /* CoreDataManager.swift */; };
@@ -44,6 +48,10 @@
 		37556FA32C3ECE36009C2FF9 /* CreationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationPresenter.swift; sourceTree = "<group>"; };
 		37556FA52C3ECE79009C2FF9 /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		37556FA72C3ED069009C2FF9 /* CreationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationAssembly.swift; sourceTree = "<group>"; };
+		37556FAC2C42B86D009C2FF9 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		37556FAE2C42B93A009C2FF9 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		37556FB22C42D173009C2FF9 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		37556FB52C42D3FE009C2FF9 /* CameraPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPresenter.swift; sourceTree = "<group>"; };
 		376ABBDD2C3D71AB009E6B80 /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
 		376ABBDF2C3D71AB009E6B80 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		376ABBE72C3D723B009E6B80 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -88,10 +96,11 @@
 		3743CEDC2C3C2DFC00073612 /* Postgram */ = {
 			isa = PBXGroup;
 			children = (
+				37556FAB2C42B85C009C2FF9 /* Camera */,
 				376ABBF22C3D7D60009E6B80 /* Router.swift */,
 				3743CEFC2C3C55CB00073612 /* CoreData */,
-				3743CEF72C3C543700073612 /* Publications */,
-				37556F9A2C3ECD3B009C2FF9 /* Creation */,
+				3743CEF72C3C543700073612 /* PublicationsModule */,
+				37556F9A2C3ECD3B009C2FF9 /* CreationModule */,
 				37AC7EBB2C3D7F7600331626 /* Extension */,
 				3743CEDF2C3C2DFC00073612 /* SceneDelegate.swift */,
 				3743CEDD2C3C2DFC00073612 /* AppDelegate.swift */,
@@ -103,7 +112,7 @@
 			path = Postgram;
 			sourceTree = "<group>";
 		};
-		3743CEF72C3C543700073612 /* Publications */ = {
+		3743CEF72C3C543700073612 /* PublicationsModule */ = {
 			isa = PBXGroup;
 			children = (
 				3743CEFB2C3C547B00073612 /* Model */,
@@ -111,7 +120,7 @@
 				3743CEF92C3C546E00073612 /* Presenter */,
 				3743CEF82C3C546500073612 /* Assembly */,
 			);
-			path = Publications;
+			path = PublicationsModule;
 			sourceTree = "<group>";
 		};
 		3743CEF82C3C546500073612 /* Assembly */ = {
@@ -156,7 +165,7 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		37556F9A2C3ECD3B009C2FF9 /* Creation */ = {
+		37556F9A2C3ECD3B009C2FF9 /* CreationModule */ = {
 			isa = PBXGroup;
 			children = (
 				37556F9E2C3ECD83009C2FF9 /* Model */,
@@ -164,7 +173,7 @@
 				37556F9C2C3ECD78009C2FF9 /* Presenter */,
 				37556F9B2C3ECD71009C2FF9 /* Assembly */,
 			);
-			path = Creation;
+			path = CreationModule;
 			sourceTree = "<group>";
 		};
 		37556F9B2C3ECD71009C2FF9 /* Assembly */ = {
@@ -198,6 +207,41 @@
 				37556F9F2C3ECD93009C2FF9 /* CreationModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		37556FAB2C42B85C009C2FF9 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				37556FB42C42D3EC009C2FF9 /* Presenter */,
+				37556FB12C42D140009C2FF9 /* Model */,
+				37556FB02C42B94B009C2FF9 /* View */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		37556FB02C42B94B009C2FF9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37556FAC2C42B86D009C2FF9 /* CameraViewController.swift */,
+				37556FAE2C42B93A009C2FF9 /* CameraView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37556FB12C42D140009C2FF9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				37556FB22C42D173009C2FF9 /* CameraService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		37556FB42C42D3EC009C2FF9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				37556FB52C42D3FE009C2FF9 /* CameraPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		376ABBE52C3D7227009E6B80 /* Model */ = {
@@ -308,10 +352,14 @@
 				376ABBE82C3D723B009E6B80 /* CoreDataManager.swift in Sources */,
 				376ABBEF2C3D7C80009E6B80 /* PublicationsView.swift in Sources */,
 				37AC7EBD2C3D7F9200331626 /* NotificationName.ext.swift in Sources */,
+				37556FAF2C42B93A009C2FF9 /* CameraView.swift in Sources */,
 				376ABBF32C3D7D60009E6B80 /* Router.swift in Sources */,
+				37556FB62C42D3FE009C2FF9 /* CameraPresenter.swift in Sources */,
 				37556FA02C3ECD93009C2FF9 /* CreationModel.swift in Sources */,
 				37556FA42C3ECE36009C2FF9 /* CreationPresenter.swift in Sources */,
 				376ABBF12C3D7D43009E6B80 /* PublicationsPresenter.swift in Sources */,
+				37556FB32C42D173009C2FF9 /* CameraService.swift in Sources */,
+				37556FAD2C42B86D009C2FF9 /* CameraViewController.swift in Sources */,
 				37AC7EBF2C3D83B700331626 /* PublicationsAssembly.swift in Sources */,
 				37556FA82C3ED069009C2FF9 /* CreationAssembly.swift in Sources */,
 				37556FA62C3ECE79009C2FF9 /* CreationViewController.swift in Sources */,
@@ -467,6 +515,8 @@
 				DEVELOPMENT_TEAM = T3Y57V3BSA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Postgram/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To make photos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To save capture";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -494,6 +544,8 @@
 				DEVELOPMENT_TEAM = T3Y57V3BSA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Postgram/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To make photos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To save capture";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
