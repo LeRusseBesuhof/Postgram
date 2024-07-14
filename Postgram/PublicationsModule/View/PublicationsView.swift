@@ -16,7 +16,7 @@ final class PublicationsView : UIImageView {
         return $0
     }(UIView())
     
-    private let createButton : UIButton = {
+    private lazy var createButton : UIButton = {
         $0.backgroundColor = .appLightGray
         $0.setTitle("Create post", for: .normal)
         $0.setTitleColor(.black, for: .normal)

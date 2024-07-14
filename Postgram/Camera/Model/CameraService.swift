@@ -5,13 +5,17 @@ import UIKit
 // TODO: manage delegates
 
 protocol CameraServiceDelegate : AnyObject {
-    func startRunning() async throws
+    
+    func takePhoto()
     func switchCamera()
-    func setPhoto(_ image: UIImage)
+    func getPreviewLayer() -> AVCaptureVideoPreviewLayer
+    func setCameraPresenterDelegate(_ delegate: CameraPresenterDelegate)
 }
 
 final class CameraService : NSObject {
     // MARK: private properties
+    private var cameraPresenterDelegate : CameraPresenterDelegate?
+    
     private var captureDevice : AVCaptureDevice? // general camera API
     private var backCamera : AVCaptureDevice? // back camera API
     private var frontCamera : AVCaptureDevice? // front camera API
@@ -19,8 +23,8 @@ final class CameraService : NSObject {
     private var backInput : AVCaptureDeviceInput! // back camera input
     private var frontInput : AVCaptureDeviceInput! // front camera input
     
+    private let cameraQueue = DispatchQueue(label: "ru.LeRusseBesuhof.CapturingModelQueue")
     private var isBackCameraOnFlag : Bool = true
-    weak var delegate : CameraServiceDelegate?
     
     private let captureSession : AVCaptureSession = AVCaptureSession() // connection between input & outputs to configure with
     private let photoOutput : AVCapturePhotoOutput = AVCapturePhotoOutput() // photo output
@@ -28,7 +32,14 @@ final class CameraService : NSObject {
     //MARK: init
     override init() {
         super.init()
-        setupCaptureSession()
+        checkPermissions()
+        Task {
+            do {
+                try await setupCaptureSession()
+            } catch {
+                fatalError("Somethins went wrong with Capture Session setup")
+            }
+        }
     }
 }
 
@@ -78,21 +89,6 @@ private extension CameraService {
         captureSession.addOutput(photoOutput)
     }
     
-    private func setupCaptureSession() {
-        // begin configuration session
-        captureSession.beginConfiguration()
-        
-        // check photo preset for current session
-        if captureSession.canSetSessionPreset(.photo) { captureSession.sessionPreset = .photo }
-        captureSession.automaticallyConfiguresCaptureDeviceForWideColor = true
-        
-        setupInputs()
-        setupOutputs()
-        
-        // end configration session
-        captureSession.commitConfiguration()
-    }
-    
     private func checkPermissions() {
         let cameraAuthStatus = AVCaptureDevice.authorizationStatus(for: .video)
         switch cameraAuthStatus {
@@ -110,13 +106,25 @@ private extension CameraService {
             fatalError()
         }
     }
+    
+    private func setupCaptureSession() async throws {
+        // begin configuration session
+        captureSession.beginConfiguration()
+        
+        // check photo preset for current session
+        if captureSession.canSetSessionPreset(.photo) { captureSession.sessionPreset = .photo }
+        captureSession.automaticallyConfiguresCaptureDeviceForWideColor = true
+        
+        setupInputs()
+        setupOutputs()
+        
+        // end configration session
+        captureSession.commitConfiguration()
+        captureSession.startRunning()
+    }
 }
 
 extension CameraService : CameraServiceDelegate {
-    
-    func startRunning() async throws {
-        captureSession.startRunning()
-    }
     
     func switchCamera() {
         // change inputs-outputs
@@ -132,12 +140,26 @@ extension CameraService : CameraServiceDelegate {
             captureDevice = backCamera
         }
         
-        photoOutput.connections.first?.videoRotationAngle = 90
+        if #available(iOS 17.0, *) {
+            photoOutput.connections.first?.videoRotationAngle = 90
+        } else {
+            photoOutput.connections.first?.videoOrientation = .portrait
+        }
         photoOutput.connections.first?.isVideoMirrored = !isBackCameraOnFlag
     }
     
-    func setPhoto(_ image: UIImage) {
-        <#code#>
+    func getPreviewLayer() -> AVCaptureVideoPreviewLayer {
+        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession) as AVCaptureVideoPreviewLayer
+        return previewLayer
+    }
+    
+    func takePhoto() {
+        let photoSettings = AVCapturePhotoSettings()
+        photoOutput.capturePhoto(with: photoSettings, delegate: self)
+    }
+    
+    func setCameraPresenterDelegate(_ delegate: CameraPresenterDelegate) {
+        cameraPresenterDelegate = delegate
     }
 }
 
@@ -156,8 +178,11 @@ extension CameraService : AVCapturePhotoCaptureDelegate {
             return
         }
         
-        DispatchQueue.main.async {
-            self.delegate?.setPhoto(image)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            cameraPresenterDelegate?.takePhoto(image)
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         }
     }
 }

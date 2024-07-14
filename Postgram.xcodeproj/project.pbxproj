@@ -21,6 +21,7 @@
 		37556FAF2C42B93A009C2FF9 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FAE2C42B93A009C2FF9 /* CameraView.swift */; };
 		37556FB32C42D173009C2FF9 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FB22C42D173009C2FF9 /* CameraService.swift */; };
 		37556FB62C42D3FE009C2FF9 /* CameraPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FB52C42D3FE009C2FF9 /* CameraPresenter.swift */; };
+		37556FB92C43F3CF009C2FF9 /* CameraAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FB82C43F3CF009C2FF9 /* CameraAssembly.swift */; };
 		376ABBE12C3D71AB009E6B80 /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBDD2C3D71AB009E6B80 /* Post+CoreDataClass.swift */; };
 		376ABBE32C3D71AB009E6B80 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBDF2C3D71AB009E6B80 /* Folder+CoreDataClass.swift */; };
 		376ABBE82C3D723B009E6B80 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBE72C3D723B009E6B80 /* CoreDataManager.swift */; };
@@ -52,6 +53,7 @@
 		37556FAE2C42B93A009C2FF9 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		37556FB22C42D173009C2FF9 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		37556FB52C42D3FE009C2FF9 /* CameraPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPresenter.swift; sourceTree = "<group>"; };
+		37556FB82C43F3CF009C2FF9 /* CameraAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAssembly.swift; sourceTree = "<group>"; };
 		376ABBDD2C3D71AB009E6B80 /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
 		376ABBDF2C3D71AB009E6B80 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		376ABBE72C3D723B009E6B80 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -212,9 +214,10 @@
 		37556FAB2C42B85C009C2FF9 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				37556FB42C42D3EC009C2FF9 /* Presenter */,
 				37556FB12C42D140009C2FF9 /* Model */,
 				37556FB02C42B94B009C2FF9 /* View */,
+				37556FB42C42D3EC009C2FF9 /* Presenter */,
+				37556FB72C43F3B6009C2FF9 /* Assembly */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -242,6 +245,14 @@
 				37556FB52C42D3FE009C2FF9 /* CameraPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		37556FB72C43F3B6009C2FF9 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				37556FB82C43F3CF009C2FF9 /* CameraAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		376ABBE52C3D7227009E6B80 /* Model */ = {
@@ -362,6 +373,7 @@
 				37556FAD2C42B86D009C2FF9 /* CameraViewController.swift in Sources */,
 				37AC7EBF2C3D83B700331626 /* PublicationsAssembly.swift in Sources */,
 				37556FA82C3ED069009C2FF9 /* CreationAssembly.swift in Sources */,
+				37556FB92C43F3CF009C2FF9 /* CameraAssembly.swift in Sources */,
 				37556FA62C3ECE79009C2FF9 /* CreationViewController.swift in Sources */,
 				3743CEDE2C3C2DFC00073612 /* AppDelegate.swift in Sources */,
 				376ABBED2C3D7C39009E6B80 /* PublicationsModel.swift in Sources */,
@@ -517,10 +529,12 @@
 				INFOPLIST_FILE = Postgram/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To make photos";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To save capture";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,10 +560,12 @@
 				INFOPLIST_FILE = Postgram/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To make photos";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To save capture";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

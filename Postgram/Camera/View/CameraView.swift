@@ -2,7 +2,14 @@ import UIKit
 import SnapKit
 
 protocol CameraViewProtocol : UIStackView {
+    var captureImage : (()-> Void)? { get set }
+    var makePhoto : (()-> Void)? { get set }
+    var switchCamera : (()-> Void)? { get set }
     
+    var imagePicker : UIImagePickerController { get }
+    
+    var leftButtonConstant : CGFloat { get }
+    func setLastGalleryImage(_ image: UIImage)
 }
 
 final class CameraView: UIStackView {
@@ -13,19 +20,38 @@ final class CameraView: UIStackView {
         case rightButtonRadius = 20.0
     }
     
+    // MARK: delegate properties
+    internal var captureImage : (()-> Void)?
+    internal var makePhoto : (()-> Void)?
+    internal var switchCamera : (()-> Void)?
+    internal var leftButtonConstant : CGFloat {
+        get {
+            ConstantSnap.leftButtonRadius.rawValue * 2
+        }
+    }
+    
+    internal lazy var imagePicker : UIImagePickerController = {
+        $0.delegate = self
+        $0.allowsEditing = true
+        $0.sourceType = .photoLibrary
+        return $0
+    }(UIImagePickerController())
+    
     // MARK: private properties
     private lazy var captureImageButton : UIButton = {
         $0.layer.cornerRadius = ConstantSnap.leftButtonRadius.rawValue
         $0.backgroundColor = .appDarkGreen
+        $0.clipsToBounds = true
+        $0.contentMode = .scaleAspectFill
         $0.addTarget(self, action: #selector(onCaptureImageButtonTouch), for: .touchDown)
         return $0
     }(UIButton())
     
     @objc private func onCaptureImageButtonTouch() {
-        print(1)
+        captureImage?()
     }
     
-    private lazy var makePhoto : UIButton = {
+    private lazy var makePhotoButton : UIButton = {
         $0.layer.borderWidth = 3
         $0.layer.borderColor = UIColor.appDarkGreen.cgColor
         $0.layer.cornerRadius = ConstantSnap.centerButtonRadius.rawValue
@@ -36,24 +62,24 @@ final class CameraView: UIStackView {
     }(UIButton())
     
     @objc private func onMakePhotoButtonTouch() {
-        print(2)
+        makePhoto?()
     }
     
-    private lazy var changeCameraMode : UIButton = {
+    private lazy var changeCameraModeButton : UIButton = {
         $0.layer.cornerRadius = ConstantSnap.rightButtonRadius.rawValue
         $0.setImage(UIImage(systemName: "arrow.triangle.2.circlepath"), for: .normal)
         $0.tintColor = .white
         $0.backgroundColor = .appDarkGreen
-        $0.addTarget(self, action: #selector(onChangeCameraModeButtonTouch), for: .touchDown)
+        $0.addTarget(self, action: #selector(onSwitchCameraButtonTouch), for: .touchDown)
         return $0
     }(UIButton())
     
-    @objc private func onChangeCameraModeButtonTouch() {
-        print(3)
+    @objc private func onSwitchCameraButtonTouch() {
+        switchCamera?()
     }
     
     private lazy var buttonsStack : UIStackView = { stack in
-        [captureImageButton, makePhoto, changeCameraMode].forEach { stack.addArrangedSubview($0) }
+        [captureImageButton, makePhotoButton, changeCameraModeButton].forEach { stack.addArrangedSubview($0) }
         stack.axis = .horizontal
         stack.distribution = .equalSpacing
         stack.alignment = .center
@@ -85,21 +111,32 @@ private extension CameraView {
             $0.width.height.equalTo(ConstantSnap.leftButtonRadius.rawValue * 3)
         }
         
-        makePhoto.snp.makeConstraints {
+        makePhotoButton.snp.makeConstraints {
             $0.width.height.equalTo(ConstantSnap.centerButtonRadius.rawValue * 2)
         }
         
-        changeCameraMode.snp.makeConstraints {
+        changeCameraModeButton.snp.makeConstraints {
             $0.width.height.equalTo(ConstantSnap.rightButtonRadius.rawValue * 2)
         }
         
         buttonsStack.snp.makeConstraints {
             $0.verticalEdges.equalToSuperview()
-            $0.horizontalEdges.equalToSuperview().inset(70)
+            $0.horizontalEdges.equalToSuperview().inset(65)
         }
     }
 }
 
 extension CameraView : CameraViewProtocol {
-    
+    func setLastGalleryImage(_ image: UIImage) {
+        captureImageButton.setImage(image, for: .normal)
+    }
+}
+
+extension CameraView : UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            print("Image've been chosen")
+        }
+        picker.dismiss(animated: true)
+    }
 }
