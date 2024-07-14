@@ -2,9 +2,9 @@ import Foundation
 import UIKit
 
 final class CreationAssembly {
-    static func build() -> UIViewController {
+    static func build(with imageData : Data) -> UIViewController {
         let router = Router()
-        let model = CreationModel()
+        let model = CreationModel(imageData)
         
         let presenter = CreationPresenter(.init(router: router, model: model))
         

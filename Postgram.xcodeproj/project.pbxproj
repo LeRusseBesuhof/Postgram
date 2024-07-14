@@ -98,9 +98,9 @@
 		3743CEDC2C3C2DFC00073612 /* Postgram */ = {
 			isa = PBXGroup;
 			children = (
-				37556FAB2C42B85C009C2FF9 /* Camera */,
 				376ABBF22C3D7D60009E6B80 /* Router.swift */,
 				3743CEFC2C3C55CB00073612 /* CoreData */,
+				37556FAB2C42B85C009C2FF9 /* Camera */,
 				3743CEF72C3C543700073612 /* PublicationsModule */,
 				37556F9A2C3ECD3B009C2FF9 /* CreationModule */,
 				37AC7EBB2C3D7F7600331626 /* Extension */,

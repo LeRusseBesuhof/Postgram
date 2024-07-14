@@ -8,22 +8,26 @@ protocol CameraPresenterProtocol : AnyObject {
 }
 
 protocol CameraPresenterDelegate : AnyObject {
-    func takePhoto(_ image: UIImage)
+    func takeImageData(_ imageData: Data)
 }
 
 final class CameraPresenter {
     // MARK: private properties
+    private let router : Router!
     private let cameraService : CameraServiceDelegate!
     private weak var view : CameraViewProtocol?
     private weak var controller : CameraViewControllerProtocol?
     
     // MARK: init
     struct Dependencies {
+        let router : Router
         let cameraService : CameraServiceDelegate
     }
     
     init(_ dependencies: Dependencies) {
+        self.router = dependencies.router
         self.cameraService = dependencies.cameraService
+        
         cameraService.setCameraPresenterDelegate(self)
     }
 }
@@ -50,7 +54,7 @@ private extension CameraPresenter {
         }
     }
     
-    private func configureView() {
+    private func configureViews() {
         setupControllerPreviewLayer()
         fetchLastImageFromGallery()
     }
@@ -104,13 +108,16 @@ extension CameraPresenter : CameraPresenterProtocol {
         self.view = view
         self.controller = controller
         
-        self.configureView()
+        self.view?.setCameraPresenterDelegate(self)
+        self.configureViews()
         self.setupHandlers()
     }
 }
 
 extension CameraPresenter : CameraPresenterDelegate {
-    func takePhoto(_ image: UIImage) {
-        // do something with photo
+    func takeImageData(_ imageData: Data) {
+        let targetController = CreationAssembly.build(with: imageData)
+        router.setUpTargetController(with: targetController)
+        router.pushTargetController()
     }
 }

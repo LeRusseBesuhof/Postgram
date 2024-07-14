@@ -7,9 +7,10 @@ protocol CameraViewProtocol : UIStackView {
     var switchCamera : (()-> Void)? { get set }
     
     var imagePicker : UIImagePickerController { get }
-    
     var leftButtonConstant : CGFloat { get }
+    
     func setLastGalleryImage(_ image: UIImage)
+    func setCameraPresenterDelegate(_ delegate : CameraPresenterDelegate)
 }
 
 final class CameraView: UIStackView {
@@ -21,10 +22,10 @@ final class CameraView: UIStackView {
     }
     
     // MARK: delegate properties
-    internal var captureImage : (()-> Void)?
-    internal var makePhoto : (()-> Void)?
-    internal var switchCamera : (()-> Void)?
-    internal var leftButtonConstant : CGFloat {
+    var captureImage : (()-> Void)?
+    var makePhoto : (()-> Void)?
+    var switchCamera : (()-> Void)?
+    var leftButtonConstant : CGFloat {
         get {
             ConstantSnap.leftButtonRadius.rawValue * 2
         }
@@ -38,6 +39,8 @@ final class CameraView: UIStackView {
     }(UIImagePickerController())
     
     // MARK: private properties
+    private weak var cameraPresenterDelegate: CameraPresenterDelegate?
+    
     private lazy var captureImageButton : UIButton = {
         $0.layer.cornerRadius = ConstantSnap.leftButtonRadius.rawValue
         $0.backgroundColor = .appDarkGreen
@@ -90,8 +93,7 @@ final class CameraView: UIStackView {
     // MARK: init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpView()
-        activateConstraints()
+        setupView()
     }
     
     required init(coder: NSCoder) {
@@ -101,9 +103,11 @@ final class CameraView: UIStackView {
 
 // MARK: private funcs
 private extension CameraView {
-    private func setUpView() {
+    private func setupView() {
         backgroundColor = .appLightGray
         addSubview(buttonsStack)
+        
+        activateConstraints()
     }
     
     private func activateConstraints() {        
@@ -130,12 +134,20 @@ extension CameraView : CameraViewProtocol {
     func setLastGalleryImage(_ image: UIImage) {
         captureImageButton.setImage(image, for: .normal)
     }
+    
+    func setCameraPresenterDelegate(_ delegate : CameraPresenterDelegate) {
+        cameraPresenterDelegate = delegate
+    }
 }
 
 extension CameraView : UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {
-            print("Image've been chosen")
+            guard let imageData = image.jpegData(compressionQuality: 1) else {
+                print("Something went wrong with compression")
+                return
+            }
+            cameraPresenterDelegate?.takeImageData(imageData)
         }
         picker.dismiss(animated: true)
     }

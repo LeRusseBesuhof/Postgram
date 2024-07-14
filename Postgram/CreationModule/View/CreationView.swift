@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 
 protocol CreationViewProtocol : UIImageView {
-    
+    func setCapturedImage(_ image: UIImage)
 }
 
 final class CreationView: UIImageView {
@@ -22,10 +22,18 @@ private extension CreationView {
     private func setUpView() {
         image = .background
         isUserInteractionEnabled = true
+        
+        activateConstraints()
+    }
+    
+    private func activateConstraints() {
+        
     }
 }
 
 // MARK: internal methods
 extension CreationView : CreationViewProtocol {
-    
+    func setCapturedImage(_ image: UIImage) {
+        
+    }
 }

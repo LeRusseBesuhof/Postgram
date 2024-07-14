@@ -14,7 +14,7 @@ protocol CameraServiceDelegate : AnyObject {
 
 final class CameraService : NSObject {
     // MARK: private properties
-    private var cameraPresenterDelegate : CameraPresenterDelegate?
+    private weak var cameraPresenterDelegate : CameraPresenterDelegate?
     
     private var captureDevice : AVCaptureDevice? // general camera API
     private var backCamera : AVCaptureDevice? // back camera API
@@ -181,7 +181,7 @@ extension CameraService : AVCapturePhotoCaptureDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
-            cameraPresenterDelegate?.takePhoto(image)
+            cameraPresenterDelegate?.takeImageData(imageData)
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         }
     }

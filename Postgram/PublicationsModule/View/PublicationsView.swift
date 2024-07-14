@@ -17,6 +17,7 @@ final class PublicationsView : UIImageView {
     }(UIView())
     
     private lazy var createButton : UIButton = {
+        $0.addTarget(self, action: #selector(onCreatePostButtonTouch), for: .touchDown)
         $0.backgroundColor = .appLightGray
         $0.setTitle("Create post", for: .normal)
         $0.setTitleColor(.black, for: .normal)
@@ -24,7 +25,6 @@ final class PublicationsView : UIImageView {
         $0.layer.cornerRadius = 20
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.black.cgColor
-        $0.addTarget(self, action: #selector(onCreatePostButtonTouch), for: .touchDown)
         return $0
     }(UIButton())
     
@@ -35,7 +35,7 @@ final class PublicationsView : UIImageView {
     // MARK: init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpView()
+        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -45,7 +45,7 @@ final class PublicationsView : UIImageView {
 
 // MARK: private methods
 private extension PublicationsView {
-    private func setUpView() {
+    private func setupView() {
         image = .background
         isUserInteractionEnabled = true
         

@@ -11,7 +11,7 @@ final class PublicationsAssembly {
         let presenter = PublicationsPresenter(.init(router: router, model: model, manager: manager))
         
         let controller = PublicationsViewController(.init(presenter: presenter))
-        let targerController = CreationAssembly.build()
+        let targerController = CameraAssembly.build()
         
         router.setUpCurrentController(with: controller)
         router.setUpTargetController(with: targerController)

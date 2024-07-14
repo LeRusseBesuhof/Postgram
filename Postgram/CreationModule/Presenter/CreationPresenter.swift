@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 protocol CreationPresenterProtocol : AnyObject {
     func loadPresenter(with view: CreationViewProtocol, controller: CreationViewControllerProtocol)
@@ -28,6 +29,15 @@ private extension CreationPresenter {
     private func setUpHandlers() {
         
     }
+    
+    private func setCapturedImageToView() {
+        let imageData = model.getImageData
+        guard let image = UIImage(data: imageData) else {
+            print("Convertion from Data to UIImage went wrong")
+            return
+        }
+        view?.setCapturedImage(image)
+    }
 }
 
 // MARK: internal methods
@@ -36,6 +46,7 @@ extension CreationPresenter : CreationPresenterProtocol {
         self.view = view
         self.controller =  controller
         
+        setCapturedImageToView()
         self.setUpHandlers()
     }
 }
