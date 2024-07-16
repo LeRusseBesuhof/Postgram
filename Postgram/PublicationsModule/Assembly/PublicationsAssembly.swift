@@ -6,7 +6,6 @@ final class PublicationsAssembly {
         let model = PublicationsModel()
         let router = Router()
         let manager = CoreDataManager.shared
-        manager.setUpRootFolder()
         
         let presenter = PublicationsPresenter(.init(router: router, model: model, manager: manager))
         

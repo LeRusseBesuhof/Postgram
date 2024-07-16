@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D95CBD94-65C5-471F-AFB2-21EEAA040A00"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Postgram/CoreData/Manager/CoreDataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "setUpRootFolder()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E2979020-CB8C-4D88-92EA-6A9B9EB24466"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -30,8 +14,8 @@
             filePath = "Postgram/CoreData/Manager/CoreDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "persistentContainer"
             landmarkType = "24">
          </BreakpointContent>
@@ -39,33 +23,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "74DBCA86-E7C4-43BE-8C4D-08BD8DAB4286"
+            uuid = "00D2D154-06EA-465A-8E58-4E2D74A1B481"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Postgram/CoreData/Manager/CoreDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "saveContext()"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "createTagsList(rootFolder:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0C3005CC-9A4A-47E1-89C2-39D348BD8257"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Postgram/CoreData/Manager/CoreDataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "fetchRootFolder()"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "00D2D154-06EA-465A-8E58-4E2D74A1B481 - 7adc7aec4574f886"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Postgram.CoreDataManager.createTagsList(rootFolder: Postgram.Publications) -&gt; ()"
+                  moduleName = "Postgram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pavelgradov/Desktop/iOS_Developer/Development/Postgram/Postgram/CoreData/Manager/CoreDataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83">
+               </Location>
+               <Location
+                  uuid = "00D2D154-06EA-465A-8E58-4E2D74A1B481 - c294032a210d23d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in Postgram.CoreDataManager.createTagsList(rootFolder: Postgram.Publications) -&gt; ()"
+                  moduleName = "Postgram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pavelgradov/Desktop/iOS_Developer/Development/Postgram/Postgram/CoreData/Manager/CoreDataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

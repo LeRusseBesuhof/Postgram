@@ -5,8 +5,11 @@ import CoreData
 final class CoreDataManager {
     // MARK: Singleton
     static let shared = CoreDataManager()
-    var rootFolder : Folder?
-    private init() { }
+    
+    private init() {
+        TagTransformer.register()
+        createRootFolder()
+    }
     
     // MARK: private properties
     private var context : NSManagedObjectContext {
@@ -38,26 +41,48 @@ final class CoreDataManager {
     }
     
     // MARK: internal methods
-    func fetchRootFolder() -> [Folder]? {
-        let req = Folder.fetchRequest()
+    func fetchRootFolder() -> Publications? {
+        let req = Publications.fetchRequest()
         do {
             let folders = try context.fetch(req)
-            return folders
+            return folders.isEmpty ? nil : folders.first
         } catch {
-            print(error.localizedDescription)
-            return nil
+            fatalError(error.localizedDescription)
         }
     }
     
-    func setUpRootFolder() {
-        if let folders = fetchRootFolder(), !folders.isEmpty {
-            self.rootFolder = folders[0]
-        } else {
-            let folder = Folder(context: context)
+    func fetchTags() -> Tags? {
+        guard let folder = fetchRootFolder() else { return nil }
+        return folder.tags
+    }
+    
+    func fetchPosts() -> NSSet? {
+        guard let folder = fetchRootFolder() else { return nil }
+        return folder.publications
+    }
+    
+    // MARK: private properties
+    private func createRootFolder() {
+        let req = fetchRootFolder()
+        if req == nil {
+            let folder = Publications(context: context)
             folder.id = UUID().uuidString
-            folder.header = "Publications"
-            self.rootFolder = folder
-            
+            createTagsList(rootFolder: folder)
+        }
+        
+        saveContext()
+    }
+    
+    private func createTagsList(rootFolder: Publications) {
+        let tags = Tags(context: context)
+        tags.id = UUID().uuidString
+        tags.rootFolder = rootFolder
+        tags.tagsData = []
+        
+        let tagNames = MockTagsData.getMockData()
+        tagNames.forEach {
+            let tag = Tag(id: UUID().uuidString, name: $0)
+            tags.tagsData?.append(tag)
         }
         
         saveContext()

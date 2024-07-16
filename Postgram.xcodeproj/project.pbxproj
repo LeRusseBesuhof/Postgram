@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		374034AC2C46A90100A6132E /* TagTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374034AB2C46A90100A6132E /* TagTransformer.swift */; };
 		3743CEDE2C3C2DFC00073612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743CEDD2C3C2DFC00073612 /* AppDelegate.swift */; };
 		3743CEE02C3C2DFC00073612 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743CEDF2C3C2DFC00073612 /* SceneDelegate.swift */; };
 		3743CEEA2C3C2DFE00073612 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3743CEE92C3C2DFE00073612 /* Assets.xcassets */; };
@@ -22,8 +23,12 @@
 		37556FB32C42D173009C2FF9 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FB22C42D173009C2FF9 /* CameraService.swift */; };
 		37556FB62C42D3FE009C2FF9 /* CameraPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FB52C42D3FE009C2FF9 /* CameraPresenter.swift */; };
 		37556FB92C43F3CF009C2FF9 /* CameraAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FB82C43F3CF009C2FF9 /* CameraAssembly.swift */; };
-		376ABBE12C3D71AB009E6B80 /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBDD2C3D71AB009E6B80 /* Post+CoreDataClass.swift */; };
-		376ABBE32C3D71AB009E6B80 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBDF2C3D71AB009E6B80 /* Folder+CoreDataClass.swift */; };
+		37556FBD2C455739009C2FF9 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 37556FBC2C455739009C2FF9 /* Collections */; };
+		37556FC62C4589E7009C2FF9 /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FC02C4589E7009C2FF9 /* Post+CoreDataClass.swift */; };
+		37556FCF2C458CF2009C2FF9 /* MockTagsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FCE2C458CF2009C2FF9 /* MockTagsData.swift */; };
+		37556FDD2C46A077009C2FF9 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FDC2C46A077009C2FF9 /* Tag.swift */; };
+		37556FE22C46A308009C2FF9 /* Publications+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FDE2C46A308009C2FF9 /* Publications+CoreDataClass.swift */; };
+		37556FE42C46A308009C2FF9 /* Tags+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37556FE02C46A308009C2FF9 /* Tags+CoreDataClass.swift */; };
 		376ABBE82C3D723B009E6B80 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBE72C3D723B009E6B80 /* CoreDataManager.swift */; };
 		376ABBEB2C3D7632009E6B80 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 376ABBEA2C3D7632009E6B80 /* SnapKit */; };
 		376ABBED2C3D7C39009E6B80 /* PublicationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376ABBEC2C3D7C39009E6B80 /* PublicationsModel.swift */; };
@@ -37,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		374034AB2C46A90100A6132E /* TagTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTransformer.swift; sourceTree = "<group>"; };
 		3743CEDA2C3C2DFC00073612 /* Postgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Postgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3743CEDD2C3C2DFC00073612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3743CEDF2C3C2DFC00073612 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,8 +60,11 @@
 		37556FB22C42D173009C2FF9 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		37556FB52C42D3FE009C2FF9 /* CameraPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPresenter.swift; sourceTree = "<group>"; };
 		37556FB82C43F3CF009C2FF9 /* CameraAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAssembly.swift; sourceTree = "<group>"; };
-		376ABBDD2C3D71AB009E6B80 /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
-		376ABBDF2C3D71AB009E6B80 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		37556FC02C4589E7009C2FF9 /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
+		37556FCE2C458CF2009C2FF9 /* MockTagsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTagsData.swift; sourceTree = "<group>"; };
+		37556FDC2C46A077009C2FF9 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		37556FDE2C46A308009C2FF9 /* Publications+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publications+CoreDataClass.swift"; sourceTree = "<group>"; };
+		37556FE02C46A308009C2FF9 /* Tags+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tags+CoreDataClass.swift"; sourceTree = "<group>"; };
 		376ABBE72C3D723B009E6B80 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		376ABBEC2C3D7C39009E6B80 /* PublicationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicationsModel.swift; sourceTree = "<group>"; };
 		376ABBEE2C3D7C80009E6B80 /* PublicationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicationsView.swift; sourceTree = "<group>"; };
@@ -72,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37556FBD2C455739009C2FF9 /* Collections in Frameworks */,
 				376ABBEB2C3D7632009E6B80 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +89,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		374034AA2C46A8E900A6132E /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				37556FDC2C46A077009C2FF9 /* Tag.swift */,
+				37556FCE2C458CF2009C2FF9 /* MockTagsData.swift */,
+				374034AB2C46A90100A6132E /* TagTransformer.swift */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
 		3743CED12C3C2DFC00073612 = {
 			isa = PBXGroup;
 			children = (
@@ -161,8 +181,8 @@
 		3743CEFC2C3C55CB00073612 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				376ABBE62C3D722C009E6B80 /* Manager */,
 				376ABBE52C3D7227009E6B80 /* Model */,
+				376ABBE62C3D722C009E6B80 /* Manager */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -258,8 +278,10 @@
 		376ABBE52C3D7227009E6B80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				376ABBDD2C3D71AB009E6B80 /* Post+CoreDataClass.swift */,
-				376ABBDF2C3D71AB009E6B80 /* Folder+CoreDataClass.swift */,
+				374034AA2C46A8E900A6132E /* Tags */,
+				37556FDE2C46A308009C2FF9 /* Publications+CoreDataClass.swift */,
+				37556FC02C4589E7009C2FF9 /* Post+CoreDataClass.swift */,
+				37556FE02C46A308009C2FF9 /* Tags+CoreDataClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +321,7 @@
 			name = Postgram;
 			packageProductDependencies = (
 				376ABBEA2C3D7632009E6B80 /* SnapKit */,
+				37556FBC2C455739009C2FF9 /* Collections */,
 			);
 			productName = Postgram;
 			productReference = 3743CEDA2C3C2DFC00073612 /* Postgram.app */;
@@ -330,6 +353,7 @@
 			mainGroup = 3743CED12C3C2DFC00073612;
 			packageReferences = (
 				376ABBE92C3D7632009E6B80 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				37556FBB2C455739009C2FF9 /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = 3743CEDB2C3C2DFC00073612 /* Products */;
 			projectDirPath = "";
@@ -359,6 +383,7 @@
 			files = (
 				37AC7EC22C3DADD200331626 /* post.xcdatamodeld in Sources */,
 				37556F992C3EC1C3009C2FF9 /* UIView.ext.swift in Sources */,
+				37556FCF2C458CF2009C2FF9 /* MockTagsData.swift in Sources */,
 				376ABBF52C3D7DC2009E6B80 /* PublicationsViewController.swift in Sources */,
 				376ABBE82C3D723B009E6B80 /* CoreDataManager.swift in Sources */,
 				376ABBEF2C3D7C80009E6B80 /* PublicationsView.swift in Sources */,
@@ -370,17 +395,20 @@
 				37556FA42C3ECE36009C2FF9 /* CreationPresenter.swift in Sources */,
 				376ABBF12C3D7D43009E6B80 /* PublicationsPresenter.swift in Sources */,
 				37556FB32C42D173009C2FF9 /* CameraService.swift in Sources */,
+				374034AC2C46A90100A6132E /* TagTransformer.swift in Sources */,
 				37556FAD2C42B86D009C2FF9 /* CameraViewController.swift in Sources */,
 				37AC7EBF2C3D83B700331626 /* PublicationsAssembly.swift in Sources */,
+				37556FE22C46A308009C2FF9 /* Publications+CoreDataClass.swift in Sources */,
+				37556FE42C46A308009C2FF9 /* Tags+CoreDataClass.swift in Sources */,
 				37556FA82C3ED069009C2FF9 /* CreationAssembly.swift in Sources */,
 				37556FB92C43F3CF009C2FF9 /* CameraAssembly.swift in Sources */,
 				37556FA62C3ECE79009C2FF9 /* CreationViewController.swift in Sources */,
+				37556FC62C4589E7009C2FF9 /* Post+CoreDataClass.swift in Sources */,
 				3743CEDE2C3C2DFC00073612 /* AppDelegate.swift in Sources */,
 				376ABBED2C3D7C39009E6B80 /* PublicationsModel.swift in Sources */,
+				37556FDD2C46A077009C2FF9 /* Tag.swift in Sources */,
 				3743CEE02C3C2DFC00073612 /* SceneDelegate.swift in Sources */,
 				37556FA22C3ECDC1009C2FF9 /* CreationView.swift in Sources */,
-				376ABBE12C3D71AB009E6B80 /* Post+CoreDataClass.swift in Sources */,
-				376ABBE32C3D71AB009E6B80 /* Folder+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +631,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		37556FBB2C455739009C2FF9 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
 		376ABBE92C3D7632009E6B80 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -614,6 +650,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		37556FBC2C455739009C2FF9 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37556FBB2C455739009C2FF9 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
 		376ABBEA2C3D7632009E6B80 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 376ABBE92C3D7632009E6B80 /* XCRemoteSwiftPackageReference "SnapKit" */;
