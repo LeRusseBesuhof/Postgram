@@ -27,7 +27,11 @@ final class CreationPresenter {
 // MARK: private methods
 private extension CreationPresenter {
     private func setUpHandlers() {
-        
+        view?.createPost = { [weak self] in
+            guard let self = self else { return }
+            
+            onCreatePostTouched()
+        }
     }
     
     private func setCapturedImageToView() {
@@ -37,6 +41,30 @@ private extension CreationPresenter {
             return
         }
         view?.setCapturedImage(image)
+    }
+    
+    private func onCreatePostTouched() {
+        guard var inputData = view?.getInputData() else { print("no input data"); return }
+        
+        let imageData = inputData.imageData
+        guard let imageURL = saveImage(imageData, to: UUID().uuidString) else { print("error"); return }
+        inputData.imageURL = imageURL
+        
+        CoreDataManager.shared.createPost(with: inputData)
+    }
+    
+    private func saveImage(_ imageData: Data, to filename: String) -> URL? {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let fileURL = documentsDirectory.first?.appendingPathComponent(filename)
+        if let URI = fileURL {
+            do {
+                try imageData.write(to: URI)
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+            return URI
+        }
+        return nil
     }
 }
 

@@ -9,7 +9,7 @@ final class PublicationsPresenter {
     // MARK: private properties
     private let router : Router!
     private let model : PublicationsModelProtocol!
-    private let storageManager : CoreDataManager!
+    // private let storageManager : CoreDataManager!
     private weak var view : PublicationsViewProtocol?
     private weak var controller : PublicationsViewControllerProtocol?
     
@@ -17,13 +17,13 @@ final class PublicationsPresenter {
     struct Dependencies {
         let router : Router
         let model : PublicationsModelProtocol
-        let manager : CoreDataManager
+        // let manager : CoreDataManager
     }
     
     init(_ dependencies: Dependencies) {
         self.router = dependencies.router
         self.model = dependencies.model
-        self.storageManager = dependencies.manager
+        // self.storageManager = dependencies.manager
     }
 }
 

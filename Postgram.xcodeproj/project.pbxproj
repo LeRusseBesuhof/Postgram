@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		374034AC2C46A90100A6132E /* TagTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374034AB2C46A90100A6132E /* TagTransformer.swift */; };
+		374034AE2C48063C00A6132E /* UITextView.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374034AD2C48063C00A6132E /* UITextView.ext.swift */; };
+		374034B02C48125E00A6132E /* String.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374034AF2C48125E00A6132E /* String.ext.swift */; };
+		374034B32C4818BC00A6132E /* Cinzel-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 374034B22C4818BC00A6132E /* Cinzel-Black.ttf */; };
+		374034B52C4818C400A6132E /* Cinzel-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 374034B42C4818C400A6132E /* Cinzel-Bold.ttf */; };
+		374034B72C4818CD00A6132E /* Cinzel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 374034B62C4818CD00A6132E /* Cinzel-Regular.ttf */; };
+		374034B92C48197400A6132E /* UIFont.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374034B82C48197400A6132E /* UIFont.ext.swift */; };
 		3743CEDE2C3C2DFC00073612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743CEDD2C3C2DFC00073612 /* AppDelegate.swift */; };
 		3743CEE02C3C2DFC00073612 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743CEDF2C3C2DFC00073612 /* SceneDelegate.swift */; };
 		3743CEEA2C3C2DFE00073612 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3743CEE92C3C2DFE00073612 /* Assets.xcassets */; };
@@ -43,6 +49,12 @@
 
 /* Begin PBXFileReference section */
 		374034AB2C46A90100A6132E /* TagTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTransformer.swift; sourceTree = "<group>"; };
+		374034AD2C48063C00A6132E /* UITextView.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.ext.swift; sourceTree = "<group>"; };
+		374034AF2C48125E00A6132E /* String.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.ext.swift; sourceTree = "<group>"; };
+		374034B22C4818BC00A6132E /* Cinzel-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cinzel-Black.ttf"; sourceTree = "<group>"; };
+		374034B42C4818C400A6132E /* Cinzel-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cinzel-Bold.ttf"; sourceTree = "<group>"; };
+		374034B62C4818CD00A6132E /* Cinzel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cinzel-Regular.ttf"; sourceTree = "<group>"; };
+		374034B82C48197400A6132E /* UIFont.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.ext.swift; sourceTree = "<group>"; };
 		3743CEDA2C3C2DFC00073612 /* Postgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Postgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3743CEDD2C3C2DFC00073612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3743CEDF2C3C2DFC00073612 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,14 +101,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		374034AA2C46A8E900A6132E /* Tags */ = {
+		374034AA2C46A8E900A6132E /* Tag */ = {
 			isa = PBXGroup;
 			children = (
 				37556FDC2C46A077009C2FF9 /* Tag.swift */,
-				37556FCE2C458CF2009C2FF9 /* MockTagsData.swift */,
 				374034AB2C46A90100A6132E /* TagTransformer.swift */,
+				37556FCE2C458CF2009C2FF9 /* MockTagsData.swift */,
 			);
-			path = Tags;
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		374034B12C48182200A6132E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				374034B62C4818CD00A6132E /* Cinzel-Regular.ttf */,
+				374034B42C4818C400A6132E /* Cinzel-Bold.ttf */,
+				374034B22C4818BC00A6132E /* Cinzel-Black.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		3743CED12C3C2DFC00073612 = {
@@ -120,12 +142,13 @@
 			children = (
 				376ABBF22C3D7D60009E6B80 /* Router.swift */,
 				3743CEFC2C3C55CB00073612 /* CoreData */,
-				37556FAB2C42B85C009C2FF9 /* Camera */,
+				37556FAB2C42B85C009C2FF9 /* CameraModule */,
 				3743CEF72C3C543700073612 /* PublicationsModule */,
 				37556F9A2C3ECD3B009C2FF9 /* CreationModule */,
 				37AC7EBB2C3D7F7600331626 /* Extension */,
-				3743CEDF2C3C2DFC00073612 /* SceneDelegate.swift */,
+				374034B12C48182200A6132E /* Fonts */,
 				3743CEDD2C3C2DFC00073612 /* AppDelegate.swift */,
+				3743CEDF2C3C2DFC00073612 /* SceneDelegate.swift */,
 				3743CEE92C3C2DFE00073612 /* Assets.xcassets */,
 				3743CEEB2C3C2DFE00073612 /* LaunchScreen.storyboard */,
 				3743CEEE2C3C2DFE00073612 /* Info.plist */,
@@ -231,7 +254,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		37556FAB2C42B85C009C2FF9 /* Camera */ = {
+		37556FAB2C42B85C009C2FF9 /* CameraModule */ = {
 			isa = PBXGroup;
 			children = (
 				37556FB12C42D140009C2FF9 /* Model */,
@@ -239,7 +262,7 @@
 				37556FB42C42D3EC009C2FF9 /* Presenter */,
 				37556FB72C43F3B6009C2FF9 /* Assembly */,
 			);
-			path = Camera;
+			path = CameraModule;
 			sourceTree = "<group>";
 		};
 		37556FB02C42B94B009C2FF9 /* View */ = {
@@ -278,7 +301,7 @@
 		376ABBE52C3D7227009E6B80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				374034AA2C46A8E900A6132E /* Tags */,
+				374034AA2C46A8E900A6132E /* Tag */,
 				37556FDE2C46A308009C2FF9 /* Publications+CoreDataClass.swift */,
 				37556FC02C4589E7009C2FF9 /* Post+CoreDataClass.swift */,
 				37556FE02C46A308009C2FF9 /* Tags+CoreDataClass.swift */,
@@ -299,6 +322,9 @@
 			children = (
 				37AC7EBC2C3D7F9200331626 /* NotificationName.ext.swift */,
 				37556F982C3EC1C3009C2FF9 /* UIView.ext.swift */,
+				374034AD2C48063C00A6132E /* UITextView.ext.swift */,
+				374034AF2C48125E00A6132E /* String.ext.swift */,
+				374034B82C48197400A6132E /* UIFont.ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -369,7 +395,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374034B32C4818BC00A6132E /* Cinzel-Black.ttf in Resources */,
 				3743CEEA2C3C2DFE00073612 /* Assets.xcassets in Resources */,
+				374034B52C4818C400A6132E /* Cinzel-Bold.ttf in Resources */,
+				374034B72C4818CD00A6132E /* Cinzel-Regular.ttf in Resources */,
 				3743CEED2C3C2DFE00073612 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,7 +419,9 @@
 				37AC7EBD2C3D7F9200331626 /* NotificationName.ext.swift in Sources */,
 				37556FAF2C42B93A009C2FF9 /* CameraView.swift in Sources */,
 				376ABBF32C3D7D60009E6B80 /* Router.swift in Sources */,
+				374034B02C48125E00A6132E /* String.ext.swift in Sources */,
 				37556FB62C42D3FE009C2FF9 /* CameraPresenter.swift in Sources */,
+				374034B92C48197400A6132E /* UIFont.ext.swift in Sources */,
 				37556FA02C3ECD93009C2FF9 /* CreationModel.swift in Sources */,
 				37556FA42C3ECE36009C2FF9 /* CreationPresenter.swift in Sources */,
 				376ABBF12C3D7D43009E6B80 /* PublicationsPresenter.swift in Sources */,
@@ -409,6 +440,7 @@
 				37556FDD2C46A077009C2FF9 /* Tag.swift in Sources */,
 				3743CEE02C3C2DFC00073612 /* SceneDelegate.swift in Sources */,
 				37556FA22C3ECDC1009C2FF9 /* CreationView.swift in Sources */,
+				374034AE2C48063C00A6132E /* UITextView.ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

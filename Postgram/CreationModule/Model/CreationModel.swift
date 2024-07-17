@@ -1,5 +1,4 @@
 import Foundation
-import OrderedCollections
 
 protocol CreationModelProtocol : AnyObject {
     var getImageData : Data { get }
@@ -19,5 +18,12 @@ extension CreationModel : CreationModelProtocol {
     var getImageData : Data {
         get { imageData }
     }
-    
+}
+
+struct InputData {
+    let header : String
+    let date : Date
+    let text : String
+    let imageData : Data
+    var imageURL : URL?
 }

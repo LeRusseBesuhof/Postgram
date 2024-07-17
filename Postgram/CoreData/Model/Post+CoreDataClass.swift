@@ -20,11 +20,12 @@ extension Post {
         return NSFetchRequest<Post>(entityName: "Post")
     }
 
-    @NSManaged public var date: Date?
     @NSManaged public var id: String?
-    @NSManaged public var tagsIDs: [String]?
-    @NSManaged public var text: String?
     @NSManaged public var title: String?
+    @NSManaged public var date: Date?
+    @NSManaged public var imageURL: URL?
+    @NSManaged public var text: String?
+    @NSManaged public var tagsIDs: [String]?
     @NSManaged public var rootFolder: Publications?
 
 }

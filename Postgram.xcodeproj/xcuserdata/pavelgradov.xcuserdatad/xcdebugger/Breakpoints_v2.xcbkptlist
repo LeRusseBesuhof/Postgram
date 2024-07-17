@@ -34,36 +34,6 @@
             endingLineNumber = "83"
             landmarkName = "createTagsList(rootFolder:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "00D2D154-06EA-465A-8E58-4E2D74A1B481 - 7adc7aec4574f886"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Postgram.CoreDataManager.createTagsList(rootFolder: Postgram.Publications) -&gt; ()"
-                  moduleName = "Postgram"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pavelgradov/Desktop/iOS_Developer/Development/Postgram/Postgram/CoreData/Manager/CoreDataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83">
-               </Location>
-               <Location
-                  uuid = "00D2D154-06EA-465A-8E58-4E2D74A1B481 - c294032a210d23d6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; () in Postgram.CoreDataManager.createTagsList(rootFolder: Postgram.Publications) -&gt; ()"
-                  moduleName = "Postgram"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pavelgradov/Desktop/iOS_Developer/Development/Postgram/Postgram/CoreData/Manager/CoreDataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

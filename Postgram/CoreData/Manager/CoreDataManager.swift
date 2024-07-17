@@ -17,7 +17,7 @@ final class CoreDataManager {
     }
     
     // MARK: - Core Data stack
-    lazy var persistentContainer: NSPersistentContainer = {
+    private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "post")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -28,7 +28,7 @@ final class CoreDataManager {
     }()
 
     // MARK: - Core Data Saving support
-    func saveContext () {
+    private func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -40,8 +40,8 @@ final class CoreDataManager {
         }
     }
     
-    // MARK: internal methods
-    func fetchRootFolder() -> Publications? {
+    // MARK: private properties
+    private func fetchRootFolder() -> Publications? {
         let req = Publications.fetchRequest()
         do {
             let folders = try context.fetch(req)
@@ -51,17 +51,17 @@ final class CoreDataManager {
         }
     }
     
-    func fetchTags() -> Tags? {
+    private func fetchTags() -> Tags? {
         guard let folder = fetchRootFolder() else { return nil }
         return folder.tags
     }
     
-    func fetchPosts() -> NSSet? {
+    private func fetchPosts() -> NSSet? {
         guard let folder = fetchRootFolder() else { return nil }
         return folder.publications
     }
     
-    // MARK: private properties
+    // MARK: internal methods
     private func createRootFolder() {
         let req = fetchRootFolder()
         if req == nil {
@@ -73,7 +73,7 @@ final class CoreDataManager {
         saveContext()
     }
     
-    private func createTagsList(rootFolder: Publications) {
+    func createTagsList(rootFolder: Publications) {
         let tags = Tags(context: context)
         tags.id = UUID().uuidString
         tags.rootFolder = rootFolder
@@ -84,6 +84,18 @@ final class CoreDataManager {
             let tag = Tag(id: UUID().uuidString, name: $0)
             tags.tagsData?.append(tag)
         }
+        
+        saveContext()
+    }
+    
+    func createPost(with data: InputData) {
+        guard let folder = fetchRootFolder() else { return }
+        let post = Post(context: context)
+        post.title = data.header
+        post.date = data.date
+        post.imageURL = data.imageURL
+        post.text = data.text
+        post.rootFolder = folder
         
         saveContext()
     }

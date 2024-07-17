@@ -18,8 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: window)
         self.window?.makeKeyAndVisible()
         
-        let rootController = PublicationsAssembly.build()
-        // let rootController = CameraAssembly.build()
+        // let rootController = PublicationsAssembly.build()
+        let rootController = CameraAssembly.build()
         self.window?.rootViewController = rootController
         
         NotificationCenter.default.addObserver(self, selector: #selector(setRoot), name: .setRoot, object: nil)
