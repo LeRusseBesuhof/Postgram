@@ -20,10 +20,10 @@ extension CreationModel : CreationModelProtocol {
     }
 }
 
-struct InputData {
+struct InputData : Identifiable {
+    var id : String = UUID().uuidString
     let header : String
     let date : Date
     let text : String
-    let imageData : Data
-    var imageURL : URL?
+    let imageName : String
 }

@@ -5,9 +5,8 @@ final class PublicationsAssembly {
     static func build() -> UIViewController {
         let model = PublicationsModel()
         let router = Router()
-        let manager = CoreDataManager.shared
         
-        let presenter = PublicationsPresenter(.init(router: router, model: model, manager: manager))
+        let presenter = PublicationsPresenter(.init(router: router, model: model))
         
         let controller = PublicationsViewController(.init(presenter: presenter))
         let targerController = CameraAssembly.build()

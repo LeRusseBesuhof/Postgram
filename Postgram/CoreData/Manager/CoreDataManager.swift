@@ -51,17 +51,6 @@ final class CoreDataManager {
         }
     }
     
-    private func fetchTags() -> Tags? {
-        guard let folder = fetchRootFolder() else { return nil }
-        return folder.tags
-    }
-    
-    private func fetchPosts() -> NSSet? {
-        guard let folder = fetchRootFolder() else { return nil }
-        return folder.publications
-    }
-    
-    // MARK: internal methods
     private func createRootFolder() {
         let req = fetchRootFolder()
         if req == nil {
@@ -71,6 +60,17 @@ final class CoreDataManager {
         }
         
         saveContext()
+    }
+    
+    private func fetchTags() -> Tags? {
+        guard let folder = fetchRootFolder() else { return nil }
+        return folder.tags
+    }
+    
+    // MARK: internal methods
+    func fetchPosts() -> NSSet? {
+        guard let folder = fetchRootFolder() else { return nil }
+        return folder.publications
     }
     
     func createTagsList(rootFolder: Publications) {
@@ -93,7 +93,7 @@ final class CoreDataManager {
         let post = Post(context: context)
         post.title = data.header
         post.date = data.date
-        post.imageURL = data.imageURL
+        post.imageName = data.imageName
         post.text = data.text
         post.rootFolder = folder
         

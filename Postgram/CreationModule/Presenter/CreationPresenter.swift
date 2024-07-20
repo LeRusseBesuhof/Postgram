@@ -44,27 +44,21 @@ private extension CreationPresenter {
     }
     
     private func onCreatePostTouched() {
-        guard var inputData = view?.getInputData() else { print("no input data"); return }
-        
-        let imageData = inputData.imageData
-        guard let imageURL = saveImage(imageData, to: UUID().uuidString) else { print("error"); return }
-        inputData.imageURL = imageURL
+        guard let inputData = view?.getInputData() else { print("no input data"); return }
+        let image = view!.getImage()
+        saveImage(image, imageName: inputData.imageName)
         
         CoreDataManager.shared.createPost(with: inputData)
+        router.pushTargetController()
     }
     
-    private func saveImage(_ imageData: Data, to filename: String) -> URL? {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let fileURL = documentsDirectory.first?.appendingPathComponent(filename)
-        if let URI = fileURL {
-            do {
-                try imageData.write(to: URI)
-            } catch {
-                fatalError(error.localizedDescription)
-            }
-            return URI
+    private func saveImage(_ image: UIImage, imageName: String) {
+        guard let imageData = image.jpegData(compressionQuality: 1) else {
+            print("Something went wrong with jpeg compression")
+            return
         }
-        return nil
+        
+        StorageManager.shared.saveImageData(imageData, imageName)
     }
 }
 

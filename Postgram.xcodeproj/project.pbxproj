@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37036D752C4AC29F002920F9 /* JimNightshade-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37036D742C4AC29F002920F9 /* JimNightshade-Regular.ttf */; };
+		37036D772C4B8469002920F9 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37036D762C4B8469002920F9 /* StorageManager.swift */; };
 		374034AC2C46A90100A6132E /* TagTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374034AB2C46A90100A6132E /* TagTransformer.swift */; };
 		374034AE2C48063C00A6132E /* UITextView.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374034AD2C48063C00A6132E /* UITextView.ext.swift */; };
 		374034B02C48125E00A6132E /* String.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374034AF2C48125E00A6132E /* String.ext.swift */; };
@@ -14,6 +16,7 @@
 		374034B52C4818C400A6132E /* Cinzel-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 374034B42C4818C400A6132E /* Cinzel-Bold.ttf */; };
 		374034B72C4818CD00A6132E /* Cinzel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 374034B62C4818CD00A6132E /* Cinzel-Regular.ttf */; };
 		374034B92C48197400A6132E /* UIFont.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374034B82C48197400A6132E /* UIFont.ext.swift */; };
+		374034FB2C49643F00A6132E /* PublicationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374034FA2C49643F00A6132E /* PublicationViewCell.swift */; };
 		3743CEDE2C3C2DFC00073612 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743CEDD2C3C2DFC00073612 /* AppDelegate.swift */; };
 		3743CEE02C3C2DFC00073612 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743CEDF2C3C2DFC00073612 /* SceneDelegate.swift */; };
 		3743CEEA2C3C2DFE00073612 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3743CEE92C3C2DFE00073612 /* Assets.xcassets */; };
@@ -48,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37036D742C4AC29F002920F9 /* JimNightshade-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JimNightshade-Regular.ttf"; sourceTree = "<group>"; };
+		37036D762C4B8469002920F9 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		374034AB2C46A90100A6132E /* TagTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTransformer.swift; sourceTree = "<group>"; };
 		374034AD2C48063C00A6132E /* UITextView.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.ext.swift; sourceTree = "<group>"; };
 		374034AF2C48125E00A6132E /* String.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.ext.swift; sourceTree = "<group>"; };
@@ -55,6 +60,7 @@
 		374034B42C4818C400A6132E /* Cinzel-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cinzel-Bold.ttf"; sourceTree = "<group>"; };
 		374034B62C4818CD00A6132E /* Cinzel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cinzel-Regular.ttf"; sourceTree = "<group>"; };
 		374034B82C48197400A6132E /* UIFont.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.ext.swift; sourceTree = "<group>"; };
+		374034FA2C49643F00A6132E /* PublicationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicationViewCell.swift; sourceTree = "<group>"; };
 		3743CEDA2C3C2DFC00073612 /* Postgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Postgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3743CEDD2C3C2DFC00073612 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3743CEDF2C3C2DFC00073612 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 				374034B62C4818CD00A6132E /* Cinzel-Regular.ttf */,
 				374034B42C4818C400A6132E /* Cinzel-Bold.ttf */,
 				374034B22C4818BC00A6132E /* Cinzel-Black.ttf */,
+				37036D742C4AC29F002920F9 /* JimNightshade-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -140,6 +147,7 @@
 		3743CEDC2C3C2DFC00073612 /* Postgram */ = {
 			isa = PBXGroup;
 			children = (
+				37036D762C4B8469002920F9 /* StorageManager.swift */,
 				376ABBF22C3D7D60009E6B80 /* Router.swift */,
 				3743CEFC2C3C55CB00073612 /* CoreData */,
 				37556FAB2C42B85C009C2FF9 /* CameraModule */,
@@ -187,6 +195,7 @@
 		3743CEFA2C3C547500073612 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				374034FA2C49643F00A6132E /* PublicationViewCell.swift */,
 				376ABBEE2C3D7C80009E6B80 /* PublicationsView.swift */,
 				376ABBF42C3D7DC2009E6B80 /* PublicationsViewController.swift */,
 			);
@@ -398,6 +407,7 @@
 				374034B32C4818BC00A6132E /* Cinzel-Black.ttf in Resources */,
 				3743CEEA2C3C2DFE00073612 /* Assets.xcassets in Resources */,
 				374034B52C4818C400A6132E /* Cinzel-Bold.ttf in Resources */,
+				37036D752C4AC29F002920F9 /* JimNightshade-Regular.ttf in Resources */,
 				374034B72C4818CD00A6132E /* Cinzel-Regular.ttf in Resources */,
 				3743CEED2C3C2DFE00073612 /* Base in Resources */,
 			);
@@ -419,6 +429,7 @@
 				37AC7EBD2C3D7F9200331626 /* NotificationName.ext.swift in Sources */,
 				37556FAF2C42B93A009C2FF9 /* CameraView.swift in Sources */,
 				376ABBF32C3D7D60009E6B80 /* Router.swift in Sources */,
+				374034FB2C49643F00A6132E /* PublicationViewCell.swift in Sources */,
 				374034B02C48125E00A6132E /* String.ext.swift in Sources */,
 				37556FB62C42D3FE009C2FF9 /* CameraPresenter.swift in Sources */,
 				374034B92C48197400A6132E /* UIFont.ext.swift in Sources */,
@@ -427,6 +438,7 @@
 				376ABBF12C3D7D43009E6B80 /* PublicationsPresenter.swift in Sources */,
 				37556FB32C42D173009C2FF9 /* CameraService.swift in Sources */,
 				374034AC2C46A90100A6132E /* TagTransformer.swift in Sources */,
+				37036D772C4B8469002920F9 /* StorageManager.swift in Sources */,
 				37556FAD2C42B86D009C2FF9 /* CameraViewController.swift in Sources */,
 				37AC7EBF2C3D83B700331626 /* PublicationsAssembly.swift in Sources */,
 				37556FE22C46A308009C2FF9 /* Publications+CoreDataClass.swift in Sources */,

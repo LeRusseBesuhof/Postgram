@@ -4,6 +4,7 @@ import SnapKit
 protocol CreationViewProtocol : UIImageView {
     func setCapturedImage(_ image: UIImage)
     func getInputData() -> InputData?
+    func getImage() -> UIImage
     
     var createPost : (() -> Void)? { get set }
 }
@@ -77,10 +78,7 @@ final class CreationView: UIImageView {
     }(UIButton())
     
     @objc private func onCreatePostTouch() {
-        if let data = getInputData() {
-            createPost?()
-            print("Something wrong with input data")
-        }
+        createPost?()
     }
     
     // MARK: init
@@ -152,15 +150,17 @@ extension CreationView : CreationViewProtocol {
         postImageView.reloadInputViews()
     }
     
+    func getImage() -> UIImage {
+        return postImageView.image!
+    }
+    
     func getInputData() -> InputData? {
         let image = postImageView.image!
-        guard let imageData = image.jpegData(compressionQuality: 0.5) else { return nil }
-        
         let inputData = InputData(
             header: headerTextField.text ?? "",
             date: Date.now,
             text: postTextView.text,
-            imageData: imageData
+            imageName: UUID().uuidString + ".jpeg"
         )
         return inputData
     }

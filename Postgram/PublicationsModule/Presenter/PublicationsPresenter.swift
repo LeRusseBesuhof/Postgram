@@ -25,20 +25,64 @@ final class PublicationsPresenter {
         self.model = dependencies.model
         // self.storageManager = dependencies.manager
     }
-}
-
-// MARK: private methods
-private extension PublicationsPresenter {
-    private func onCreatePostTouched() {
-        router.pushTargetController()
-    }
     
-    private func setUpHandlers() {
+    // MARK: private methods
+    private func setupHandlers() {
         view?.createPost = { [weak self] in
             guard let self = self else { return }
             
             onCreatePostTouched()
         }
+    }
+    
+    private func setupPublications() {
+        loadPublicationsData()
+        view?.publicationsMockData = model.getPublicationsData()
+    }
+}
+
+private extension PublicationsPresenter {
+    
+    private func onCreatePostTouched() {
+        router.pushTargetController()
+    }
+    
+    private func loadPublicationsData() {
+        guard let publicationsSet = CoreDataManager.shared.fetchPosts() else {
+            print("Something went wrong with publications access")
+            return
+        }
+        
+        for pub in publicationsSet {
+            let post = pub as! Post
+            // TODO: сделать удаление постов в CoreData
+            guard let imageData = StorageManager.shared.getImageData(byImageName: post.imageName!) else {
+                print("Something went wrong with image data loading")
+                return
+            }
+            guard let image = UIImage(data: imageData) else {
+                print("Something went wrong with image conversion")
+                return
+            }
+            view?.images.append(image)
+            
+            let publicationData = InputData(
+                header: post.title!,
+                date: post.date!,
+                text: post.text!,
+                imageName: post.imageName!
+            )
+            
+            model.setPublicationData(publicationData)
+        }
+        view?.reloadCollectionComponents()
+    }
+    
+    private func getPostDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MM yyyy"
+        let dateString = formatter.string(from: date)
+        return dateString
     }
 }
 
@@ -48,6 +92,7 @@ extension PublicationsPresenter : PublicationsPresenterProtocol {
         self.view = view
         self.controller = controller
         
-        self.setUpHandlers()
+        self.setupHandlers()
+        self.setupPublications()
     }
 }
