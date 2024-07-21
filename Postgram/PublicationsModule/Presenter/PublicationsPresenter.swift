@@ -38,6 +38,7 @@ final class PublicationsPresenter {
     private func setupPublications() {
         loadPublicationsData()
         view?.publicationsMockData = model.getPublicationsData()
+        view?.reloadCollectionComponents()
     }
 }
 
@@ -55,7 +56,6 @@ private extension PublicationsPresenter {
         
         for pub in publicationsSet {
             let post = pub as! Post
-            // TODO: сделать удаление постов в CoreData
             guard let imageData = StorageManager.shared.getImageData(byImageName: post.imageName!) else {
                 print("Something went wrong with image data loading")
                 return
@@ -75,14 +75,6 @@ private extension PublicationsPresenter {
             
             model.setPublicationData(publicationData)
         }
-        view?.reloadCollectionComponents()
-    }
-    
-    private func getPostDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd MM yyyy"
-        let dateString = formatter.string(from: date)
-        return dateString
     }
 }
 

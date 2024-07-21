@@ -16,21 +16,34 @@ final class PublicationsView : UIImageView {
     var images : [UIImage] = []
     
     // MARK: private properties
+    private var isArrayEmpty : Bool {
+        get { publicationsMockData.isEmpty }
+    }
+    
     private let canvasView : UIView = {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 30
+        $0.clipsToBounds = true
         return $0
     }(UIView())
     
-    private let layout : UICollectionViewFlowLayout = {
+    private lazy var emptyImageView : UIImageView = {
+        $0.image = .noPublications
+        $0.contentMode = .scaleAspectFit
+        $0.clipsToBounds = true
+        return $0
+    }(UIImageView())
+    
+    private lazy var layout : UICollectionViewFlowLayout = {
+        $0.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        $0.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width, height: .zero)
         $0.scrollDirection = .vertical
-        $0.minimumLineSpacing = 0
-        $0.minimumInteritemSpacing = 0
         return $0
     }(UICollectionViewFlowLayout())
     
     private lazy var collectionView : UICollectionView = {
         $0.dataSource = self
+        $0.register(PublicationViewCell.self, forCellWithReuseIdentifier: PublicationViewCell.reuseID)
         return $0
     }(UICollectionView(frame: .zero, collectionViewLayout: layout))
     
@@ -67,7 +80,7 @@ private extension PublicationsView {
         image = .background
         isUserInteractionEnabled = true
         
-        canvasView.addSubviews(createButton)
+        canvasView.addSubview(createButton)
         addSubviews(canvasView)
         
         activateConstraints()
@@ -86,15 +99,35 @@ private extension PublicationsView {
             $0.height.equalTo(50)
         }
     }
+    
+    private func activateAdditionalViewConstraints(_ isCollectionViewEmpty: Bool) {
+        if isCollectionViewEmpty {
+            canvasView.addSubview(emptyImageView)
+            emptyImageView.snp.makeConstraints {
+                $0.center.equalToSuperview()
+                $0.height.width.equalTo(100)
+            }
+        } else {
+            canvasView.addSubview(collectionView)
+            collectionView.snp.makeConstraints {
+                $0.horizontalEdges.equalToSuperview()
+                $0.top.equalToSuperview()
+                $0.bottom.equalToSuperview().inset(70)
+            }
+        }
+    }
 }
 
 extension PublicationsView : PublicationsViewProtocol {
     func reloadCollectionComponents() {
         collectionView.reloadData()
+        let isCollectionViewEmpty = publicationsMockData.isEmpty
+        activateAdditionalViewConstraints(isCollectionViewEmpty)
     }
 }
 
 extension PublicationsView : UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         publicationsMockData.count
     }
@@ -109,6 +142,4 @@ extension PublicationsView : UICollectionViewDataSource {
         cell.setupCell(by: item, currentImage)
         return cell
     }
-    
-    
 }

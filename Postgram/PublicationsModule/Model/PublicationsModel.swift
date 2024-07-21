@@ -1,6 +1,8 @@
 import Foundation
 import UIKit
 
+// MARK: may be deleted
+
 protocol PublicationsModelProtocol : AnyObject {
     func setPublicationData(_ data: InputData)
     func getPublicationsData() -> [InputData]

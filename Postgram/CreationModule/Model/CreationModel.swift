@@ -23,7 +23,7 @@ extension CreationModel : CreationModelProtocol {
 struct InputData : Identifiable {
     var id : String = UUID().uuidString
     let header : String
-    let date : Date
+    let date : String
     let text : String
     let imageName : String
 }

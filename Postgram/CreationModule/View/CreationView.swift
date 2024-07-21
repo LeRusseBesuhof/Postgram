@@ -155,10 +155,9 @@ extension CreationView : CreationViewProtocol {
     }
     
     func getInputData() -> InputData? {
-        let image = postImageView.image!
         let inputData = InputData(
             header: headerTextField.text ?? "",
-            date: Date.now,
+            date: Date.now.formatDate(),
             text: postTextView.text,
             imageName: UUID().uuidString + ".jpeg"
         )
