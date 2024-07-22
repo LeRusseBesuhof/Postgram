@@ -3,6 +3,9 @@ import SnapKit
 
 protocol PublicationsViewProtocol : UIImageView{
     var createPost : (() -> Void)? { get set }
+    var changePost : ((String) -> Void)? { get set }
+    var deletePost : ((String) -> Void)? { get set }
+    
     var publicationsMockData : [InputData] { get set }
     var images : [UIImage] { get set }
     
@@ -12,6 +15,9 @@ protocol PublicationsViewProtocol : UIImageView{
 final class PublicationsView : UIImageView {
     // MARK: internal properties
     var createPost: (() -> Void)?
+    var changePost : ((String) -> Void)?
+    var deletePost : ((String) -> Void)?
+    
     var publicationsMockData : [InputData] = []
     var images : [UIImage] = []
     
@@ -33,6 +39,13 @@ final class PublicationsView : UIImageView {
         $0.clipsToBounds = true
         return $0
     }(UIImageView())
+    
+    private lazy var emptyLabel : UILabel = {
+        $0.text = "There's nothing here yet"
+        $0.textAlignment = .center
+        $0.font = .getCinzelFont(fontSize: 20)
+        return $0
+    }(UILabel())
     
     private lazy var layout : UICollectionViewFlowLayout = {
         $0.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
@@ -102,17 +115,27 @@ private extension PublicationsView {
     
     private func activateAdditionalViewConstraints(_ isCollectionViewEmpty: Bool) {
         if isCollectionViewEmpty {
-            canvasView.addSubview(emptyImageView)
+            collectionView.removeFromSuperview()
+            canvasView.addSubviews(emptyImageView, emptyLabel)
+            
             emptyImageView.snp.makeConstraints {
                 $0.center.equalToSuperview()
                 $0.height.width.equalTo(100)
             }
+            
+            emptyLabel.snp.makeConstraints {
+                $0.top.equalTo(emptyImageView.snp.bottom)
+                $0.centerX.equalToSuperview()
+            }
         } else {
+            emptyImageView.removeFromSuperview()
+            emptyLabel.removeFromSuperview()
             canvasView.addSubview(collectionView)
+            
             collectionView.snp.makeConstraints {
                 $0.horizontalEdges.equalToSuperview()
                 $0.top.equalToSuperview()
-                $0.bottom.equalToSuperview().inset(70)
+                $0.bottom.equalToSuperview().inset(80)
             }
         }
     }
@@ -138,8 +161,20 @@ extension PublicationsView : UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PublicationViewCell.reuseID, for: indexPath) as? PublicationViewCell else {
             return UICollectionViewCell()
         }
-        
+    
+        cell.changeButtonDelegate = self
+        cell.deleteButtonDelegate = self
         cell.setupCell(by: item, currentImage)
         return cell
+    }
+}
+
+extension PublicationsView : CellButtonDelegate {
+    func changeButtonTapped(_ id: String) {
+        changePost?(id)
+    }
+    
+    func deleteButtonTapped(_ id: String) {
+        deletePost?(id)
     }
 }

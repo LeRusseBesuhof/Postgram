@@ -5,6 +5,7 @@ import AVFoundation
 protocol CameraViewControllerProtocol : AnyObject {
     func setupPreviewLayer(_ previewLayer : AVCaptureVideoPreviewLayer)
     func presentImagePicker(_ controller: UIImagePickerController)
+    func present(_ controller: UIViewController)
 }
 
 final class CameraViewController: UIViewController {
@@ -52,6 +53,7 @@ private extension CameraViewController {
     }
 }
 
+// MARK: internal methods
 extension CameraViewController : CameraViewControllerProtocol {
     func setupPreviewLayer(_ previewLayer : AVCaptureVideoPreviewLayer) {
         previewLayer.videoGravity = .resizeAspectFill
@@ -62,5 +64,9 @@ extension CameraViewController : CameraViewControllerProtocol {
     
     func presentImagePicker(_ controller: UIImagePickerController) {
         self.present(controller, animated: true)
+    }
+    
+    func present(_ controller: UIViewController) {
+        present(controller, animated: true)
     }
 }

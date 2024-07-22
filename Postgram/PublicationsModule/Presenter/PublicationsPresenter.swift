@@ -9,21 +9,20 @@ final class PublicationsPresenter {
     // MARK: private properties
     private let router : Router!
     private let model : PublicationsModelProtocol!
-    // private let storageManager : CoreDataManager!
     private weak var view : PublicationsViewProtocol?
     private weak var controller : PublicationsViewControllerProtocol?
+    private let coreDataManager = CoreDataManager.shared
+    private let storageManager = StorageManager.shared
     
     // MARK: init
     struct Dependencies {
         let router : Router
         let model : PublicationsModelProtocol
-        // let manager : CoreDataManager
     }
     
     init(_ dependencies: Dependencies) {
         self.router = dependencies.router
         self.model = dependencies.model
-        // self.storageManager = dependencies.manager
     }
     
     // MARK: private methods
@@ -32,6 +31,18 @@ final class PublicationsPresenter {
             guard let self = self else { return }
             
             onCreatePostTouched()
+        }
+        
+        view?.changePost = { [weak self] id in
+            guard let self = self else { return }
+            
+            onChangePostTouched(by: id)
+        }
+        
+        view?.deletePost = { [weak self] id in
+            guard let self = self else { return }
+            
+            onDeletePostTouched(by: id)
         }
     }
     
@@ -48,25 +59,33 @@ private extension PublicationsPresenter {
         router.pushTargetController()
     }
     
+    private func onChangePostTouched(by id: String) {
+        
+    }
+    
+    private func onDeletePostTouched(by id: String) {
+        coreDataManager.deletePost(by: id)
+        let indToRemove = model.deletePublicationDataBy(id)
+        view?.publicationsMockData = model.getPublicationsData()
+        view?.images.remove(at: indToRemove)
+        view?.reloadCollectionComponents()
+    }
+    
     private func loadPublicationsData() {
-        guard let publicationsSet = CoreDataManager.shared.fetchPosts() else {
-            print("Something went wrong with publications access")
+        guard let publicationsSet = coreDataManager.fetchPublications() else {
             return
         }
         
         for pub in publicationsSet {
             let post = pub as! Post
-            guard let imageData = StorageManager.shared.getImageData(byImageName: post.imageName!) else {
-                print("Something went wrong with image data loading")
+            guard let imageData = storageManager.getImageData(byImageName: post.imageName!) else {
                 return
             }
-            guard let image = UIImage(data: imageData) else {
-                print("Something went wrong with image conversion")
-                return
-            }
+            guard let image = UIImage(data: imageData) else { return }
             view?.images.append(image)
             
             let publicationData = InputData(
+                id: post.id!,
                 header: post.title!,
                 date: post.date!,
                 text: post.text!,

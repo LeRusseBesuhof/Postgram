@@ -2,10 +2,7 @@ import Foundation
 import AVFoundation
 import UIKit
 
-// TODO: manage delegates
-
 protocol CameraServiceDelegate : AnyObject {
-    
     func takePhoto()
     func switchCamera()
     func getPreviewLayer() -> AVCaptureVideoPreviewLayer

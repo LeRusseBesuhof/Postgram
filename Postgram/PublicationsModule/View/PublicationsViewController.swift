@@ -29,7 +29,6 @@ final class PublicationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(pView)
-        // print(FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask).first)
     }
     
     override func loadView() {

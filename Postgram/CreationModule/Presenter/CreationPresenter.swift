@@ -11,6 +11,8 @@ final class CreationPresenter {
     private let model : CreationModelProtocol!
     private weak var view : CreationViewProtocol?
     private weak var controller : CreationViewControllerProtocol?
+    private let coreDataManager = CoreDataManager.shared
+    private let storageManager = StorageManager.shared
     
     // MARK: init
     struct Dependencies {
@@ -48,7 +50,7 @@ private extension CreationPresenter {
         let image = view!.getImage()
         saveImage(image, imageName: inputData.imageName)
         
-        CoreDataManager.shared.createPost(with: inputData)
+        coreDataManager.createPost(with: inputData)
         router.pushTargetController()
     }
     
@@ -58,7 +60,7 @@ private extension CreationPresenter {
             return
         }
         
-        StorageManager.shared.saveImageData(imageData, imageName)
+        storageManager.saveImageData(imageData, imageName)
     }
 }
 

@@ -12,6 +12,8 @@ final class CoreDataManager {
     }
     
     // MARK: private properties
+    private let storageManager = StorageManager.shared
+    
     private var context : NSManagedObjectContext {
         persistentContainer.viewContext
     }
@@ -68,9 +70,18 @@ final class CoreDataManager {
     }
     
     // MARK: internal methods
-    func fetchPosts() -> NSSet? {
+    func fetchPublications() -> NSSet? {
         guard let folder = fetchRootFolder() else { return nil }
         return folder.publications
+    }
+    
+    func fetchPostBy(_ id: String) -> Post? {
+        guard let publications = fetchPublications() else { return nil }
+        for el in publications {
+            let post = el as! Post
+            if post.id == id { return post }
+        }
+        return nil
     }
     
     func createTagsList(rootFolder: Publications) {
@@ -91,11 +102,20 @@ final class CoreDataManager {
     func createPost(with data: InputData) {
         guard let folder = fetchRootFolder() else { return }
         let post = Post(context: context)
+        post.id = data.id
         post.title = data.header
         post.date = data.date
         post.imageName = data.imageName
         post.text = data.text
         post.rootFolder = folder
+        
+        saveContext()
+    }
+    
+    func deletePost(by id: String) {
+        guard let post = fetchPostBy(id) else { print("Something went wrong with post deleting"); return }
+        storageManager.removeObject(img: post.imageName!)
+        context.delete(post)
         
         saveContext()
     }

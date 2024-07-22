@@ -34,15 +34,11 @@ final class StorageManager {
         }
     }
     
-    func removeObjects() {
+    func removeObject(img: String) {
         guard let path = getPath() else { return }
         do {
-            let fileURLs = try FileManager.default.contentsOfDirectory(atPath: path.path)
-            for img in fileURLs {
-                let imgPath = path.appending(path: img)
-                print(imgPath)
-                try FileManager.default.removeItem(atPath: imgPath.path)
-            }
+            let imgPath = path.appending(path: img)
+            try FileManager.default.removeItem(atPath: imgPath.path)
         } catch {
             print(error.localizedDescription)
         }

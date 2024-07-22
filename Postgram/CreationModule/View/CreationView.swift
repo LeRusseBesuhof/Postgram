@@ -55,7 +55,7 @@ final class CreationView: UIImageView {
     
     private lazy var postTextView : UITextView = {
         $0.layer.cornerRadius = 20
-        $0.font = .getCinzelFont()
+        $0.font = UIFont.systemFont(ofSize: 16)
         $0.backgroundColor = .appLightGray
         $0.isEditable = true
         $0.delegate = self
@@ -72,7 +72,7 @@ final class CreationView: UIImageView {
         $0.layer.cornerRadius = 20
         $0.setTitle(.makePost, for: .normal)
         $0.setTitleColor(.appDarkGreen, for: .normal)
-        $0.titleLabel?.font = .getCinzelFont(fontType: .regular, fontSize: 24)
+        $0.titleLabel?.font = UIFont.systemFont(ofSize: 24)
         $0.addTarget(self, action: #selector(onCreatePostTouch), for: .touchDown)
         return $0
     }(UIButton())
@@ -95,7 +95,7 @@ final class CreationView: UIImageView {
 // MARK: private methods
 private extension CreationView {
     private func setUpView() {
-        image = .background
+        // image = .background
         isUserInteractionEnabled = true
         postTextView.setUpTextView(.smthInteresting, .appPlaceholder)
         canvasView.addSubviews(titleLabel, headerTextField, postImageView, postTextView, createPostButton)
@@ -106,9 +106,9 @@ private extension CreationView {
     
     private func activateConstraints() {
         canvasView.snp.makeConstraints {
-            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.horizontalEdges.equalToSuperview()
             $0.top.equalToSuperview().inset(40)
-            $0.bottom.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints {
@@ -138,7 +138,7 @@ private extension CreationView {
         createPostButton.snp.makeConstraints {
             $0.horizontalEdges.equalTo(postTextView)
             $0.top.equalTo(postTextView.snp.bottom).offset(15)
-            $0.bottom.equalToSuperview().inset(15)
+            $0.height.equalTo(50)
         }
     }
 }
@@ -187,7 +187,6 @@ extension CreationView : UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        print(text)
         if text == "\n" {
             textView.resignFirstResponder()
             return false
