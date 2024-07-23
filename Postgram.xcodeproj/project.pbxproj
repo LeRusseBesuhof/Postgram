@@ -149,6 +149,7 @@
 		3743CEDC2C3C2DFC00073612 /* Postgram */ = {
 			isa = PBXGroup;
 			children = (
+				37AC7EC02C3DADD200331626 /* post.xcdatamodeld */,
 				37036D762C4B8469002920F9 /* StorageManager.swift */,
 				376ABBF22C3D7D60009E6B80 /* Router.swift */,
 				3743CEFC2C3C55CB00073612 /* CoreData */,
@@ -162,7 +163,6 @@
 				3743CEE92C3C2DFE00073612 /* Assets.xcassets */,
 				3743CEEB2C3C2DFE00073612 /* LaunchScreen.storyboard */,
 				3743CEEE2C3C2DFE00073612 /* Info.plist */,
-				37AC7EC02C3DADD200331626 /* post.xcdatamodeld */,
 			);
 			path = Postgram;
 			sourceTree = "<group>";
